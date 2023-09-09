@@ -1,107 +1,123 @@
-*{
+* {
     padding: 0;
     margin: 0;
+}
+body {
+    background-image: url(https://media.istockphoto.com/id/1315152008/photo/passport-airplane-tickets-yellow-suitcase-sun-hat-and-protective-face-mask-on-yellow.jpg?s=612x612&w=0&k=20&c=3A0FzoCwSxC7rdZBEb-T-88Q9r83BYynPG1yp3HA2i4=);
+    background-size: cover;
+    background-position: center;
+   
     font-family: sans-serif;
 }
-.jag{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    place-items: center;
-  
+
+.menubar {
+    background: rgb(0,100,0);
+    text-align: center;
 
 }
-body{
-  background-color: #ffad06;
-    min-width: 100vw;
-}
-.form-box{
-    width: 380px;
-    height: 480px;
-    /* position: relative; */
-    /* margin: auto; */
-    background: #fff;
-    /* position: absolute; */
-    padding: 5px;
-    border-radius: 30px;
-    border-color: black;
-
-    
-}
-.button-box{
-    width: 220px;
-    margin: 35px auto;
-    position: relative;
-    box-shadow: 0 0 20px 9px #ff61241f;
-    border-radius: 30px;
+.menubar ul{
+    display: inline-flex;
+    list-style: none;
+    color: #fff;
 
 }
-.toggle-btn{
-    padding: 10px 30px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    position: relative;
+.menubar ul li {
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
 }
-#btn{
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 110px;
-    height: 100%;
-    background: linear-gradient(to right, #ea560b,#ffad06);
-    border-radius: 30px;
-    transition: .5s;
+.menubar ul li a{
+    text-decoration: none;
+    color: #fff;
 }
-.input-group{
-    top: 300px;
-    position: absolute;
-    width: 280px;
-    transition: .5s;
-    z-index: 999 ;
+.active, .menubar ul li:hover
+{
+    background: #2bab0d;
+    border-radius: 3px;
 }
-.input-field{
-    width: 100%;
-    padding: 10px 0;
-    margin: 5px 0;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 1px solid #999;
-    outline: none;
-    background: transparent;
+.menubar .fa{
+    margin-right: 8px; 
 }
-.submit-btn{
-    width: 85%;
-    height: 30px;
-    padding: 10px,30px;
-    cursor: pointer;
+.submenu1 {
+    display: none;
+}
+.menubar ul li:hover .submenu1
+{
     display: block;
-    margin: auto;
-    background: linear-gradient(to right, #ea560b,#ffad06);
-    border: 0;
-    outline: none;
-    border-radius: 40px;
-}
-.chech-box{
-    margin: 30px 10px 39px 0;
-}
-span{
-    color: #777;
-    font-size: 12px;
-    bottom: 69px;
     position: absolute;
+    background: rgb(0,100,0);
+    margin-top: 15px;
+    margin-left: -15px;
+}
+.menubar ul li:hover .submenu1 ul{
+    display: block;
+    margin: 10px;
+}
+.menubar ul li:hover .submenu1 ul li
+{
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+}
+.menubar ul li:hover .submenu1 ul li:last-child
+{
+    border-bottom: none;
+}
+.menubar ul li:hover .submenu1 ul li a:hover
+{
+    color: #b2ff00;
 }
 
-   .btn .input-group:hover::after{
-        top: 0;
-        left: 0;
-        position: absolute;
-        width: 110px;
-        height: 100%;
-        background: linear-gradient(to right, #ffad06,#ea560b);
-        border-radius: 30px;
-        transition: .5s;
-    }
+.thumbnail1, .thumbnail2, .thumbnail3 {
+    border-radius: 19px;
+    height: 200px;
+    width: 200px;
+}
+.column1, .column2, .column3 {
+    float: left;
+    width: 20%;
+    padding: 10px 10px;
+}
+.card1, .card2, .card3 {
+    border-radius: 19px;
+    padding: 15px;
+    text-align: center;
+    background-color: #151f30;
+}
+h3 {
+    color: white;
+}
+
+
+.container1{
+    flex-direction: row;
+}
+.thumbnail4, .thumbnail5, .thumbnail6, .thumbnail7, .thumbnail8 {
+    border-radius: 19px;
+    height: 200px;
+    width: 200px;
+}
+.column4, .column5, .column6, .column7, .column8 {
+    float: left;
+    width: 20%;
+    padding: 10px 10px;
+}
+.card4, .card5, .card6, .card7, .card8 {
+    border-radius: 19px;
+    padding: 15px;
+    text-align: center;
+    background-color: #151f30;
+}
+.container2{
+    flex-direction: row;
+}
+a {
+    text-decoration: none;
+}
+form {
+    float: right;
+    padding: 25px;
+}
