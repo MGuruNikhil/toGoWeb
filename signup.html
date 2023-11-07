@@ -4,25 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signup</title>
+    <link rel="shortcut icon" href="togo.jpeg" type="image/x-icon">
     <script src="auth.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <input id="username" type="text" placeholder="USER ID" />
-    <input id="email" type="gmail" placeholder="MAIL ID" />
-    <input id="age" type="number" placeholder="AGE" />
-    <label for="city">city : </label>
-    <select name="city" id="city" required>
-        <option value="">--select city--</option>
-        <option value="vizag">Vizag</option>
-        <option value="goa">Goa</option>
-        <option value="mumbai">Mumbai</option>
-        <option value="delhi">Delhi</option>
-    </select>
-    <input type="radio" id="female" name="GENDER" value="FEMALE" />
-    <label for="FEMALE">FEMALE</label><br />
-    <input type="radio" id="male" name="GENDER" value="MALE" />
-    <label for="MALE">MALE</label>
-    <input id="password" type="password" placeholder="PASSWORD" />
-    <button id="signup">signup</button>
+<body class="flex min-h-screen items-center justify-center bg-[#ff534f]">
+    <div class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
+        <div class="text-[5vw] md:text-[3rem] mb-2">signup</div>
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black"  id="username" type="text" placeholder="username">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="email" type="email" placeholder="email">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age" type="number" placeholder="age">
+        <select id="city" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
+            <option value="">--select city--</option>
+            <option value="vizag">Vizag</option>
+            <option value="goa">Goa</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="delhi">Delhi</option>
+        </select>
+        <div>
+            gender :
+            <input type="radio" id="female" name="GENDER" value="FEMALE">
+            female
+            <input type="radio" id="male" name="GENDER" value="MALE">
+            male
+        </div>
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="password" type="password" placeholder="password">
+        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="signup">signup</button>
+        <div id="display"></div>
+        <div>old here? <a class="font-bold" href="login.html">login now</a></div>
+    </div>
 </body>
 </html>

@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile</title>
+    <link rel="shortcut icon" href="togo.jpeg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div id="name"></div>
-    <div id="age"></div>
-    <div id="email"></div>
-    <div id="gender"></div>
-    <div id="city"></div>
-    <button id="edit">edit</button>
+<body class="flex min-h-screen items-center justify-center bg-[#ff534f]">
+    <div class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
+        <div class="text-[5vw] md:text-[3rem]">details</div>
+        <div>name: <span id="name">dummy_name</span></div>
+        <div>age: <span id="age">dummy_age</span></div>
+        <div>email: <span id="email">dummy_email</span></div>
+        <div>gender: <span id="gender">dummy_gender</span></div>
+        <div>city: <span id="city">dummy_city</span></div>
+        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="edit">edit</button>
+    </div>
 </body>
 </html>
