@@ -39,8 +39,7 @@ function createUser() {
             console.log(errorMessage);
         });
 }
-const login = document.querySelector('#login');
-login.addEventListener('click', userLogin);
+
 function userLogin() {
     const mail = document.getElementById('email');
     const email = mail.value;

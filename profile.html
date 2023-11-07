@@ -8,14 +8,52 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex min-h-screen items-center justify-center bg-[#ff534f]">
-    <div class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
+    <div id="profile-render" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
         <div class="text-[5vw] md:text-[3rem]">details</div>
         <div>name: <span id="name">dummy_name</span></div>
         <div>age: <span id="age">dummy_age</span></div>
         <div>email: <span id="email">dummy_email</span></div>
         <div>gender: <span id="gender">dummy_gender</span></div>
         <div>city: <span id="city">dummy_city</span></div>
-        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="edit">edit</button>
+        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="edit" onclick="edit_show()">edit</button>
     </div>
+    <div id="profile-edit" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
+        <div class="text-[5vw] md:text-[3rem]">details - edit</div>
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black"  id="username" type="text" placeholder="username">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="email" type="email" placeholder="email">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age" type="number" placeholder="age">
+        <select id="city" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
+            <option value="">--select city--</option>
+            <option value="vizag">vizag</option>
+            <option value="goa">goa</option>
+            <option value="mumbai">mumbai</option>
+            <option value="delhi">delhi</option>
+        </select>
+        <div>
+            gender :
+            <input type="radio" id="female" name="GENDER" value="FEMALE">
+            female
+            <input type="radio" id="male" name="GENDER" value="MALE">
+            male
+        </div>
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="password" type="password" placeholder="password">
+        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="done" onclick="edit_hide()">done</button>
+    </div>
+    <script>
+        profile_render = document.getElementById("profile-render")
+        profile_edit = document.getElementById("profile-edit")
+
+        function edit_show(){
+            profile_edit.style.display = "flex"
+            profile_render.style.display = "none"
+        }
+        
+        function edit_hide(){
+            profile_edit.style.display = "none"
+            profile_render.style.display = "flex"
+        }
+
+        edit_hide()
+    </script>
 </body>
 </html>
