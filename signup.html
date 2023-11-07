@@ -7,10 +7,23 @@
     <script src="auth.js"></script>
 </head>
 <body>
-    <input type="email" id="email">
-    <br>
-    <input type="password" id="password">
-    <br>
+    <input id="username" type="text" placeholder="USER ID" />
+    <input id="email" type="gmail" placeholder="MAIL ID" />
+    <input id="age" type="number" placeholder="AGE" />
+    <label for="city">city : </label>
+    <select name="city" id="city" required>
+        <option value="">--select city--</option>
+        <option value="vizag">Vizag</option>
+        <option value="goa">Goa</option>
+        <option value="mumbai">Mumbai</option>
+        <option value="delhi">Delhi</option>
+    </select>
+    <input id="kl" type="text" placeholder="KNOWN LANGUAGES" />
+    <input type="radio" id="FEMALE" name="GENDER" value="FEMALE" />
+    <label for="FEMALE">FEMALE</label><br />
+    <input type="radio" id="MALE" name="GENDER" value="MALE" />
+    <label for="MALE">MALE</label>
+    <input id="password" type="password" placeholder="PASSWORD" />
     <button id="signup">signup</button>
 </body>
 </html>
