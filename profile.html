@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile</title>
+    <script type="module" src="auth.js"></script>
     <link rel="shortcut icon" href="togo.jpeg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -16,6 +17,7 @@
         <div>gender: <span id="gender">dummy_gender</span></div>
         <div>city: <span id="city">dummy_city</span></div>
         <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="edit" onclick="edit_show()">edit</button>
+        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="logout">logout</button>
     </div>
     <div id="profile-edit" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
         <div class="text-[5vw] md:text-[3rem]">details - edit</div>
