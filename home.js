@@ -1,13 +1,22 @@
-import  app  from "./firebaseconfig.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
-const urlParams = new URLSearchParams(window.location.search);
-const userId = urlParams.get('data');
+import app from "./firebaseconfig.js";
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 const auth = getAuth(app);
+var userId = null;
 auth.onAuthStateChanged(user => {
     if (user) {
         console.log("Logged in");
+        userId = user.uid;
+        console.log(userId);
     } else {
-        window.location.href=`signin.html`;
+        window.location.href = `login.html`;
     }
 });
-export { userId };
+
+const logOut = document.getElementById("logout");
+logOut.addEventListener('click', () => {
+    signOut(auth).then(() => {
+        window.location.href = "login.html";
+    }).catch((error) => {
+        console.log(error);
+    });
+});
