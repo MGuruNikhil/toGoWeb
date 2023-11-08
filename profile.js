@@ -11,12 +11,12 @@ auth.onAuthStateChanged(user => {
         console.log(userId);
         onValue(ref(db, '/users/' + userId), (snapshot) => {
             const userData = snapshot.val() || {};
-            const name = userData.username || 'Anonymous';
+            const noname = userData.username || 'Anonymous';
             const age = userData.age || 'Anonymous';
             const city = userData.city || 'Anonymous';
             const gender = userData.gender || 'Anonymous';
             const email = userData.email || 'Anonymous';
-            document.getElementById("name").innerText = name;
+            document.getElementById("name").innerText = noname;
             document.getElementById("age").innerText = age;
             document.getElementById("email").innerText = email;
             document.getElementById("gender").innerText = gender;
@@ -70,3 +70,11 @@ set(reference, profileObj)
     });
 
 });
+
+const edit_show = document.getElementById("edit")
+edit_show.addEventListener('click', () => {
+    document.getElementById("name_edit").value = noname;
+    document.getElementById("age_edit").value = age;
+    document.getElementById("email_edit").value = email;
+    document.getElementById("city_edit").value = city;
+})

@@ -4,7 +4,7 @@ import {
     createUserWithEmailAndPassword,
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
 const auth = getAuth(app);
 const database = getDatabase(app);
 // onAuthStateChanged(auth, (user) => {
@@ -68,3 +68,30 @@ function createUser() {
             console.log(errorMessage);
         });
 }
+
+onValue(ref(database, '/city'), (snapshot) => {
+    const citieslist = snapshot.val() || "panicheyyadamledu";
+    const cities = citieslist.cities.split(',');
+    const selectElement = document.getElementById('city');
+
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = '--select city--';
+
+    selectElement.appendChild(defaultOption);
+
+    for (const city in cities) {
+    if (cities.hasOwnProperty(city)) {
+        const option = document.createElement('option');
+        option.value = city;
+        option.textContent = city;
+        selectElement.appendChild(option);
+    }
+    }
+
+    selectElement.classList.add('bg-[#f9ac40]', 'rounded-lg', 'focus:ring-[#ff534f]', 'py-1', 'px-2.5');
+    selectElement.setAttribute('required', 'true');
+
+}, {
+    onlyOnce: true
+});
