@@ -1,6 +1,6 @@
 import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
 const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
+    apiKey: "AIzaSyBMANBoTHkV3UGU_DxGtx2pHDG7Apaqfr8",
     authDomain: "togo-ee66d.firebaseapp.com",
     projectId: "togo-ee66d",
     storageBucket: "togo-ee66d.appspot.com",
