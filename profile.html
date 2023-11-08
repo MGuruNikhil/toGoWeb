@@ -1,48 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="profile.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>profile</title>
+    <script type="module" src="profile.js"></script>
+    <link rel="shortcut icon" href="togo.jpeg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body>
-    <div class="menubar">
-        <ul>
-            <li><a href="#"><i class="fa fa-house"></i>HOME</a>
-            </li>
-            <li><a href="#"><i class="fa fa-ticket"></i>BOOKINGS</a>
-            </li>
-            <li class="active"><a href="#"><i class="fa fa-user"></i>PROFILE</a>
-                <div class="submenu1">
-
-                </div>
-            </li>
-        </ul>
-        <form>
-            <input type="search" placeholder="Search">
-        </form>
+<body class="flex min-h-screen items-center justify-center bg-[#ff534f]">
+    <div id="profile-render" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
+        <div class="text-[5vw] md:text-[3rem]">details</div>
+        <div>name: <span id="name">dummy_name</span></div>
+        <div>age: <span id="age">dummy_age</span></div>
+        <div>gender: <span id="gender">dummy_gender</span></div>
+        <div>city: <span id="city">dummy_city</span></div>
+        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="edit" onclick="edit_show()">edit</button>
+        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="logout">logout</button>
     </div>
-    <div class="white">
-        <div class="profile-card">
-            <div class="image">
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="profile-image">
-            </div>
-            <div class="data">
-                <p class="name">Username:</p><p id="name">xyz</p>
-                <p class="mail">Mail Id:</p><p id="email">xyz12@gmail.com</p>
-                <p class="age">Age:</p><p id="age">27</p>
-                <!-- <p class="lang">Known Languages:</p><p>Telugu,Hindi,English</p> -->
-                <p class="gender">Gender:</p><p id="gender">Male</p>
-                <p class="city">City:</p><p id="city">Visakhapatnam</p>
-            </div>
-               <form>
-                   <input class="button" type="button" name="Edit" value="Edit" onclick="">
-               </form>
+    <div id="profile-edit" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2 hidden">
+        <div class="text-[5vw] md:text-[3rem]">details - edit</div>
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black"  id="username_edit" type="text" placeholder="username">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age_edit" type="number" placeholder="age">
+        <select id="city_edit" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
+            <option value="">--select city--</option>
+            <option value="vizag">vizag</option>
+            <option value="goa">goa</option>
+            <option value="mumbai">mumbai</option>
+            <option value="delhi">delhi</option>
+        </select>
+        <div>
+            gender :
+            <input type="radio" id="female_edit" name="GENDER_EDIT" value="female">
+            female
+            <input type="radio" id="male_edit" name="GENDER_EDIT" value="male">
+            male
         </div>
+        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="done" onclick="edit_hide()">done</button>
     </div>
-    <script type="module" src="all.js"></script>
+    <script>
+        profile_render = document.getElementById("profile-render")
+        profile_edit = document.getElementById("profile-edit")
+        
+        function edit_show(){
+            not_so_name = document.getElementById("name").innerHTML
+            not_so_age = document.getElementById("age").innerHTML
+            not_so_city = document.getElementById("city").innerHTML
+            not_so_gender = document.getElementById("gender").innerHTML
+            profile_edit.style.display = "flex"
+            profile_render.style.display = "none"
+            value_set(not_so_name,not_so_age,not_so_city,not_so_gender)    
+        }
+        
+        function value_set(noname,age,city,gender){
+
+            document.getElementById("username_edit").value = noname
+            document.getElementById("age_edit").value = age
+            document.getElementById("city_edit").value = city
+
+            if (gender === "female") {
+                document.getElementById("female_edit").checked = true;
+                document.getElementById("male_edit").checked = false;
+            } 
+            
+            else if (gender === "male") {
+                document.getElementById("female_edit").checked = false;
+                document.getElementById("male_edit").checked = true;
+            } 
+            
+            else {
+                document.getElementById("female_edit").checked = false;
+                document.getElementById("male_edit").checked = false;
+            }
+        }
+
+        function edit_hide(){
+            window.location.reload()
+        }
+
+    </script>
 </body>
+</html>

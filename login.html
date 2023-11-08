@@ -1,102 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>log</title>
-    <link rel="stylesheet" href="login.css" />
-    <!-- <style>
-        body {
-            background-image:url("galaxy.jpg");
-            background-size: cover;
-        }
-    </style> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="shortcut icon" href="togo.jpeg" type="image/x-icon">
+    <script src="login.js" type="module"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body>
-    <p>
-        <center>
-
-            <h1><i><b>welcome</b></i></h1>
-        </center>
-    </p>
-    <div class="jag">
-        <div class="form-box">
-            <div class="button-box">
-                <div id="btn"></div>
-                <button type="button" class="toggle-btn" onclick="LOGIN()">
-                    LOG IN
-                </button>
-                <button type="button" class="toggle-btn" onclick="SIGNUP()">
-                    SIGN UP
-                </button>
-            </div>
-        </div>
-        <form id="LOGIN" class="input-group">
-            <input id="loginEmail" type="text" class="input-field" placeholder="EMAIL ID" />
-
-            <input id="loginPass" type="password" class="input-field" placeholder="PASSWORD" />
-            <input type="checkbox" class="chech-box" /><span>REMEMBER PASSWORD</span>
-            <button id="login" type="submit" class="submit-btn">LOGIN</button>
-        </form>
-        <form id="SIGNUP" style="display: none" class="input-group">
-            <input id="username" type="text" class="input-field" placeholder="USER ID" />
-            <input id="email" type="gmail" class="input-field" placeholder="MAIL ID" />
-            <input id="age" type="number" class="input-field" placeholder="AGE" />
-            <label for="city">City : </label>
-            <select name="city" id="city" required>
-                <option value="">--select city--</option>
-                <option value="vizag">Vizag</option>
-                <option value="goa">Goa</option>
-                <option value="mumbai">Mumbai</option>
-                <option value="delhi">Delhi</option>
-            </select>
-            <input id="kl" type="text" class="input-field" placeholder="KNOWN LANGUAGES" />
-            <input type="radio" id="FEMALE" name="GENDER" value="FEMALE" />
-            <label for="FEMALE">FEMALE</label><br />
-            <input type="radio" id="MALE" name="GENDER" value="MALE" />
-            <label for="MALE">MALE</label>
-            <input id="password" type="password" class="input-field" placeholder="PASSWORD" />
-            <input type="checkbox" class="chech-box" /><span>agree all conditions</span>
-            <button type="submit" id="signup" class="submit-btn">SIGNUP</button>
-        </form>
+<body class="flex min-h-screen items-center justify-center bg-[#ff534f]">
+    <div class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
+        <div class="text-[5vw] md:text-[3rem] mb-2">login</div>
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black"  id="email" type="text" placeholder="email">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="password" type="password" placeholder="password">
+        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="login">login</button>
+        <div id="result"></div>
+        <div>new here? <a class="font-bold" href="signup.html">register now</a></div>
     </div>
-    <!-- <script>
-        var x= document.getElementById("LOGIN");
-
-        var y= document.getElementById("SIGNUP");
-        
-        var z= document.getElementById("btn");
-        function REGISTER(){
-            x.style.left="-400px"
-            y.style.left="-50px"
-            z.style.left="-110px"
-            
-        }
-        function LOGIN(){
-            x.style.left="50px"
-            y.style.left="450px"
-            z.style.left="0px"
-            
-        }
-    </script> -->
-    <script>
-        var x = document.getElementById("LOGIN");
-
-        var y = document.getElementById("SIGNUP");
-
-        function SIGNUP() {
-            y.style.display = "block";
-            x.style.display = "none";
-        }
-
-        function LOGIN() {
-            x.style.display = "block";
-            y.style.display = "none";
-        }
-    </script>
-    <script type="module" src="signin.js"></script>
 </body>
-
 </html>
