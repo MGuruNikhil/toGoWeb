@@ -73,12 +73,6 @@ onValue(ref(database, '/city'), (snapshot) => {
     const cities = citieslist.cities.split(',');
     const selectElement = document.getElementById('city');
 
-    const defaultOption = document.createElement('option');
-    defaultOption.value = '';
-    defaultOption.textContent = '--select city--';
-
-    selectElement.appendChild(defaultOption);
-
     cities.forEach((index) => {
         const option = document.createElement('option');
         option.value = index;

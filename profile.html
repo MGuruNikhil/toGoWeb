@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="shortcut icon" href="togo.jpeg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="flex min-h-screen items-center justify-center bg-[#ff534f]">
     <div id="profile-render" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
         <div class="text-[5vw] md:text-[3rem]">details</div>
@@ -20,14 +22,12 @@
     </div>
     <div id="profile-edit" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2 hidden">
         <div class="text-[5vw] md:text-[3rem]">details - edit</div>
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black"  id="username_edit" type="text" placeholder="username">
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age_edit" type="number" placeholder="age">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="username_edit" type="text"
+            placeholder="username">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age_edit" type="number"
+            placeholder="age">
         <select id="city_edit" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
-            <option value="">--select city--</option>
-            <option value="vizag">vizag</option>
-            <option value="goa">goa</option>
-            <option value="mumbai">mumbai</option>
-            <option value="delhi">delhi</option>
+            <option selected disabled value="">--select city--</option>
         </select>
         <div>
             gender :
@@ -41,18 +41,18 @@
     <script>
         profile_render = document.getElementById("profile-render")
         profile_edit = document.getElementById("profile-edit")
-        
-        function edit_show(){
+
+        function edit_show() {
             not_so_name = document.getElementById("name").innerHTML
             not_so_age = document.getElementById("age").innerHTML
             not_so_city = document.getElementById("city").innerHTML
             not_so_gender = document.getElementById("gender").innerHTML
             profile_edit.style.display = "flex"
             profile_render.style.display = "none"
-            value_set(not_so_name,not_so_age,not_so_city,not_so_gender)    
+            value_set(not_so_name, not_so_age, not_so_city, not_so_gender)
         }
-        
-        function value_set(noname,age,city,gender){
+
+        function value_set(noname, age, city, gender) {
 
             document.getElementById("username_edit").value = noname
             document.getElementById("age_edit").value = age
@@ -61,23 +61,24 @@
             if (gender === "female") {
                 document.getElementById("female_edit").checked = true;
                 document.getElementById("male_edit").checked = false;
-            } 
-            
+            }
+
             else if (gender === "male") {
                 document.getElementById("female_edit").checked = false;
                 document.getElementById("male_edit").checked = true;
-            } 
-            
+            }
+
             else {
                 document.getElementById("female_edit").checked = false;
                 document.getElementById("male_edit").checked = false;
             }
         }
 
-        function edit_hide(){
+        function edit_hide() {
             window.location.reload()
         }
 
     </script>
 </body>
+
 </html>

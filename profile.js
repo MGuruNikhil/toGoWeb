@@ -48,20 +48,39 @@ edit.addEventListener('click', () => {
             gender_edit = gG[i].value;
         }
     }
-const profileObj = {
-    username: username_edit,
-    age: age_edit,
-    city: city_edit,
-    gender: gender_edit,
-};
-console.log(profileObj);
-const reference = ref(db, 'users/' + userId);
-console.log(reference);
-set(reference, profileObj)
-    .then(() => {
-        console.log("Successfull");
+    const profileObj = {
+        username: username_edit,
+        age: age_edit,
+        city: city_edit,
+        gender: gender_edit,
+    };
+    console.log(profileObj);
+    const reference = ref(db, 'users/' + userId);
+    console.log(reference);
+    set(reference, profileObj)
+        .then(() => {
+            console.log("Successfull");
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+});
+
+onValue(ref(db, '/city'), (snapshot) => {
+    const citieslist = snapshot.val() || "--select city--";
+    const cities = citieslist.cities.split(',');
+    const selectElement = document.getElementById('city_edit');
+
+    cities.forEach((index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = index;
+        selectElement.appendChild(option);
     })
-    .catch((error) => {
-        console.error(error);
-    });
+
+    selectElement.classList.add('bg-[#f9ac40]', 'rounded-lg', 'focus:ring-[#ff534f]', 'py-1', 'px-2.5');
+    selectElement.setAttribute('required', 'true');
+
+}, {
+    onlyOnce: true
 });
