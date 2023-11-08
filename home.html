@@ -21,6 +21,19 @@
             <button class="bg-[#ff534f] px-3 py-2 rounded-xl" id="menu">menu</button>
         </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var menuButton = document.getElementById("menu");
+        var navMenu = document.querySelector(".hidden.sm\\:flex");
+
+        menuButton.addEventListener("click", function() {
+            navMenu.classList.toggle("flex"); // Toggle flex direction to column
+            navMenu.classList.toggle("gap-2"); // Toggle flex direction to column
+            navMenu.classList.toggle("flex-col"); // Toggle flex direction to column
+            navMenu.classList.toggle("hidden");
+        });
+    });
+    </script>
     <div id="imghold" class="m-5 grid grid-cols-2 gap-4">
 
     </div>
