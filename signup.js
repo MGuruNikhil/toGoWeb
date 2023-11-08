@@ -63,7 +63,7 @@ function createUser() {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            display.innerHTML = "something went wrong";
+            display.innerHTML = "something went wrong: "+errorMessage;
             console.log(errorCode);
             console.log(errorMessage);
         });

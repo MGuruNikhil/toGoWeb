@@ -34,7 +34,7 @@ function userLogin() {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            display.innerHTML = "Something went wrong";
+            display.innerHTML = "something went wrong: "+errorMessage;
             console.log(errorCode);
             console.log(errorMessage);
         });
