@@ -12,10 +12,10 @@
     <div class="min-w-[100vw] flex items-center mx-auto pr-4 bg-[#ffd75b]">
         <img src="togo.png" class="h-[10vh] mr-3">
         <div class="my-2 grow items-center justify-around hidden sm:flex">
-            <a class="bg-[#ff534f] px-3 py-2 rounded-xl"  href="bookings.html">bookings</a>
-            <a class="bg-[#ff534f] px-3 py-2 rounded-xl"  href="chats.html">chat</a>
-            <a class="bg-[#ff534f] px-3 py-2 rounded-xl"  href="profile.html">profile</a>
-            <button class="bg-[#ff534f] px-3 py-2 rounded-xl" id="logout">logout</button>
+            <a class="bg-[#ff534f] w-fit px-3 py-2 rounded-xl"  href="bookings.html">bookings</a>
+            <a class="bg-[#ff534f] w-fit px-3 py-2 rounded-xl"  href="chats.html">chat</a>
+            <a class="bg-[#ff534f] w-fit px-3 py-2 rounded-xl"  href="profile.html">profile</a>
+            <button class="bg-[#ff534f] w-fit px-3 py-2 rounded-xl" id="logout">logout</button>
         </div>
         <div class="my-2 grow items-center justify-end flex sm:hidden">
             <button class="bg-[#ff534f] px-3 py-2 rounded-xl" id="menu">menu</button>
@@ -27,9 +27,9 @@
         var navMenu = document.querySelector(".hidden.sm\\:flex");
 
         menuButton.addEventListener("click", function() {
-            navMenu.classList.toggle("flex"); // Toggle flex direction to column
+            navMenu.classList.toggle("grid"); // Toggle flex direction to column
             navMenu.classList.toggle("gap-2"); // Toggle flex direction to column
-            navMenu.classList.toggle("flex-col"); // Toggle flex direction to column
+            navMenu.classList.toggle("grid-cols-2"); // Toggle flex direction to column
             navMenu.classList.toggle("hidden");
         });
     });
