@@ -11,11 +11,14 @@
 <body class="flex flex-col min-h-screen bg-[#ff534f]">
     <div class="min-w-[100vw] flex items-center mx-auto pr-4 bg-[#ffd75b]">
         <img src="togo.png" class="h-[10vh] mr-3">
-        <div class="mt-2 grow items-center justify-around flex">
+        <div class="mt-2 grow items-center justify-around hidden sm:flex">
             <a class="bg-[#ff534f] px-3 py-2 rounded-xl"  href="bookings.html">bookings</a>
             <a class="bg-[#ff534f] px-3 py-2 rounded-xl"  href="chats.html">chat</a>
             <a class="bg-[#ff534f] px-3 py-2 rounded-xl"  href="profile.html">profile</a>
             <button class="bg-[#ff534f] px-3 py-2 rounded-xl" id="logout">logout</button>
+        </div>
+        <div class="mt-2 grow items-center justify-end flex sm:hidden">
+            <button class="bg-[#ff534f] px-3 py-2 rounded-xl" id="menu">menu</button>
         </div>
     </div>
 </body>
