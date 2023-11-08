@@ -44,12 +44,39 @@
     <script>
         profile_render = document.getElementById("profile-render")
         profile_edit = document.getElementById("profile-edit")
-
+        
         function edit_show(){
+            not_so_name = document.getElementById("name").innerHTML
+            not_so_age = document.getElementById("age").innerHTML
+            not_so_email = document.getElementById("email").innerHTML
+            not_so_city = document.getElementById("city").innerHTML
+            not_so_gender = document.getElementById("gender").innerHTML
             profile_edit.style.display = "flex"
             profile_render.style.display = "none"
+            value_set(not_so_name,not_so_age,not_so_email,not_so_city,not_so_gender)    
         }
         
+        function value_set(noname,age,email,city,gender){
+            document.getElementById("username_edit").value = noname
+            document.getElementById("age_edit").value = age
+            document.getElementById("email_edit").value = email
+            document.getElementById("city_edit").value = city
+            if (gender === "female") {
+                document.getElementById("female_edit").checked = true;
+                document.getElementById("male_edit").checked = false;
+            } 
+            
+            else if (gender === "male") {
+                document.getElementById("female_edit").checked = false;
+                document.getElementById("male_edit").checked = true;
+            } 
+            
+            else {
+                document.getElementById("female_edit").checked = false;
+                document.getElementById("male_edit").checked = false;
+            }
+        }
+
         function edit_hide(){
             profile_edit.style.display = "none"
             profile_render.style.display = "flex"
