@@ -7,20 +7,20 @@ import {
 import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
 const auth = getAuth(app);
 const database = getDatabase(app);
-// onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//         window.location.href = "home.html";
-//     }
-//     else {
-//         //nothing to do
-//     }
-// });
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        window.location.href = "home.html";
+    }
+    else {
+        //nothing to do
+    }
+});
 
 var display = document.getElementById('result');
 const signUp = document.querySelector('#signup');
 signUp.addEventListener('click', createUser);
 
-function createUser() {
+async function createUser() {
     const mail = document.getElementById('email');
     const email = mail.value;
     const pWord = document.getElementById('password');
@@ -35,7 +35,7 @@ function createUser() {
             gender = gG[i].value;
         }
     }
-    createUserWithEmailAndPassword(auth, email, password)
+    await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
@@ -54,7 +54,6 @@ function createUser() {
             set(reference, profileObj)
                 .then(() => {
                     console.log("Successfull");
-                    window.location.href = "home.html";
                 })
                 .catch((error) => {
                     console.error(error);
