@@ -9,7 +9,7 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        window.location.href = "home.html";
+        window.location.href = "index.html";
     }
     else {
         //nothing to do

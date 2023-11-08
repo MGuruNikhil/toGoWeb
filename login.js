@@ -8,7 +8,7 @@ var userId = null;
 const auth = getAuth(app);
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        window.location.href = "home.html";
+        window.location.href = "index.html";
     }
     else {
         //nothing to do
@@ -29,7 +29,7 @@ function userLogin() {
             const user = userCredential.user;
             userId = user.uid;
             console.log(user);
-            window.location.href = `home.html`;
+            window.location.href = `index.html`;
         })
         .catch((error) => {
             const errorCode = error.code;
