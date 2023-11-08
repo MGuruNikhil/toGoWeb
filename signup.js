@@ -80,14 +80,12 @@ onValue(ref(database, '/city'), (snapshot) => {
 
     selectElement.appendChild(defaultOption);
 
-    for (const city in cities) {
-    if (cities.hasOwnProperty(city)) {
+    cities.forEach((index, city) => {
         const option = document.createElement('option');
         option.value = city;
         option.textContent = city;
         selectElement.appendChild(option);
-    }
-    }
+    })
 
     selectElement.classList.add('bg-[#f9ac40]', 'rounded-lg', 'focus:ring-[#ff534f]', 'py-1', 'px-2.5');
     selectElement.setAttribute('required', 'true');
