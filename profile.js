@@ -15,10 +15,8 @@ auth.onAuthStateChanged(user => {
             const age = userData.age || 'Anonymous';
             const city = userData.city || 'Anonymous';
             const gender = userData.gender || 'Anonymous';
-            const email = userData.email || 'Anonymous';
             document.getElementById("name").innerText = noname;
             document.getElementById("age").innerText = age;
-            document.getElementById("email").innerText = email;
             document.getElementById("gender").innerText = gender;
             document.getElementById("city").innerText = city;
         }, {
@@ -43,7 +41,6 @@ edit.addEventListener('click', () => {
     const username_edit = document.getElementById("username_edit").value
     const age_edit = document.getElementById("age_edit").value
     const city_edit = document.getElementById("city_edit").value
-    const email_edit = document.getElementById("email_edit").value
     const gG = document.getElementsByName('GENDER_EDIT');
     var gender_edit = "";
     for (let i = 0; i < gG.length; i++) {
@@ -56,7 +53,6 @@ const profileObj = {
     age: age_edit,
     city: city_edit,
     gender: gender_edit,
-    email: email_edit
 };
 console.log(profileObj);
 const reference = ref(db, 'users/' + userId);
@@ -68,13 +64,4 @@ set(reference, profileObj)
     .catch((error) => {
         console.error(error);
     });
-
 });
-
-const edit_show = document.getElementById("edit")
-edit_show.addEventListener('click', () => {
-    document.getElementById("name_edit").value = noname;
-    document.getElementById("age_edit").value = age;
-    document.getElementById("email_edit").value = email;
-    document.getElementById("city_edit").value = city;
-})
