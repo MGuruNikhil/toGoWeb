@@ -18,7 +18,7 @@
         <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="edit" onclick="edit_show()">edit</button>
         <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="logout">logout</button>
     </div>
-    <div id="profile-edit" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
+    <div id="profile-edit" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2 hidden">
         <div class="text-[5vw] md:text-[3rem]">details - edit</div>
         <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black"  id="username_edit" type="text" placeholder="username">
         <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age_edit" type="number" placeholder="age">
@@ -75,11 +75,9 @@
         }
 
         function edit_hide(){
-            profile_edit.style.display = "none"
-            profile_render.style.display = "flex"
+            window.location.reload()
         }
 
-        edit_hide()
     </script>
 </body>
 </html>
