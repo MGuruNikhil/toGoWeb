@@ -63,14 +63,14 @@ function createUser() {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            display.innerHTML = "something went wrong: "+errorMessage;
+            display.innerHTML = "something went wrong: " + errorMessage;
             console.log(errorCode);
             console.log(errorMessage);
         });
 }
 
 onValue(ref(database, '/city'), (snapshot) => {
-    const citieslist = snapshot.val() || "panicheyyadamledu";
+    const citieslist = snapshot.val() || "--select city--";
     const cities = citieslist.cities.split(',');
     const selectElement = document.getElementById('city');
 
