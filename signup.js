@@ -80,10 +80,10 @@ onValue(ref(database, '/city'), (snapshot) => {
 
     selectElement.appendChild(defaultOption);
 
-    cities.forEach((index, city) => {
+    cities.forEach((index) => {
         const option = document.createElement('option');
-        option.value = city;
-        option.textContent = city;
+        option.value = index;
+        option.textContent = index;
         selectElement.appendChild(option);
     })
 
