@@ -9,6 +9,13 @@ auth.onAuthStateChanged(user => {
         console.log("logged in");
         userId = user.uid;
         console.log(userId);
+        onValue(ref(database, '/users/' + userId), (snapshot) => {
+            const userData = snapshot.val() || {};
+            const noname = userData.username || 'Anonymous';
+            document.getElementById("name").innerText = noname;
+        }, {
+            onlyOnce: true
+        });
     } else {
         window.location.href = `login.html`;
     }
