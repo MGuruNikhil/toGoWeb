@@ -36,6 +36,9 @@ function search() {
     searchUsersByCity(cityToSearch);
 }
 
+searchButton.addEventListener("click", () => {
+    search()
+})
 // Function to search users by city
 function searchUsersByCity(city) {
     // Clear previous search results
@@ -93,7 +96,9 @@ function displayUserProfile(user) {
 function render_url(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const city = urlParams.get('city');
-    document.getElementById("city").value = city
-    search()
+    const pcity = urlParams.get('city');
+    document.getElementById("city").value = pcity
+    if(pcity !== ''){
+        search()
+    }
 }
