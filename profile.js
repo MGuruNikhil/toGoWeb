@@ -2,14 +2,14 @@ import app from "./firebaseconfig.js";
 import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
 const auth = getAuth(app);
-const db = getDatabase(app);
+const database = getDatabase(app);
 var userId = null;
 auth.onAuthStateChanged(user => {
     if (user) {
         console.log("Logged in");
         userId = user.uid;
         console.log(userId);
-        onValue(ref(db, '/users/' + userId), (snapshot) => {
+        onValue(ref(database, '/users/' + userId), (snapshot) => {
             const userData = snapshot.val() || {};
             const noname = userData.username || 'Anonymous';
             const age = userData.age || 'Anonymous';
@@ -55,7 +55,7 @@ edit.addEventListener('click', () => {
         gender: gender_edit,
     };
     console.log(profileObj);
-    const reference = ref(db, 'users/' + userId);
+    const reference = ref(database, 'users/' + userId);
     console.log(reference);
     set(reference, profileObj)
         .then(() => {
@@ -66,21 +66,26 @@ edit.addEventListener('click', () => {
         });
 });
 
-onValue(ref(db, '/city'), (snapshot) => {
-    const citieslist = snapshot.val() || "--select city--";
-    const cities = citieslist.cities.split(',');
-    const selectElement = document.getElementById('city_edit');
+const getciti = document.getElementById("edit")
+getciti.addEventListener('click', () => {
+    onValue(ref(database, '/city'), (snapshot) => {
+        const citieslist = snapshot.val() || "--select city--";
+        const cities = citieslist.cities.split(',');
+        const selectElement = document.getElementById('city_edit');
+    
+        cities.forEach((index) => {
+            const option = document.createElement('option');
+            option.value = index;
+            option.textContent = index;
+            selectElement.appendChild(option);
+        })
 
-    cities.forEach((index) => {
-        const option = document.createElement('option');
-        option.value = index;
-        option.textContent = index;
-        selectElement.appendChild(option);
-    })
-
-    selectElement.classList.add('bg-[#f9ac40]', 'rounded-lg', 'focus:ring-[#ff534f]', 'py-1', 'px-2.5');
-    selectElement.setAttribute('required', 'true');
-
-}, {
-    onlyOnce: true
-});
+        selectElement.value = not_so_city;
+    
+        selectElement.classList.add('bg-[#f9ac40]', 'rounded-lg', 'focus:ring-[#ff534f]', 'py-1', 'px-2.5');
+        selectElement.setAttribute('required', 'true');
+    
+    }, {
+        onlyOnce: true
+    });
+})

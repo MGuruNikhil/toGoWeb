@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +8,9 @@
     <link rel="shortcut icon" href="togo.jpeg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body class="flex min-h-screen items-center justify-center bg-[#ff534f]">
     <div id="profile-render" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
-        <div class="text-[5vw] md:text-[3rem]">details</div>
+        <div class="text-[5vw] md:text-[3rem]"><span id="usertype">tourist</span> profile</div>
         <div>name: <span id="name">dummy_name</span></div>
         <div>age: <span id="age">dummy_age</span></div>
         <div>gender: <span id="gender">dummy_gender</span></div>
@@ -22,13 +20,11 @@
     </div>
     <div id="profile-edit" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2 hidden">
         <div class="text-[5vw] md:text-[3rem]">details - edit</div>
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="username_edit" type="text"
-            placeholder="username">
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age_edit" type="number"
-            placeholder="age">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="username_edit" type="text" placeholder="username">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age_edit" type="number" placeholder="age">
         <select id="city_edit" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
-            <option selected disabled value="">--select city--</option>
-        </select>
+
+        </select> 
         <div>
             gender :
             <input type="radio" id="female_edit" name="GENDER_EDIT" value="female">
@@ -36,6 +32,7 @@
             <input type="radio" id="male_edit" name="GENDER_EDIT" value="male">
             male
         </div>
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="usertype_edit" type="text" placeholder="usertype">
         <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="done" onclick="edit_hide()">done</button>
     </div>
     <script>
@@ -49,14 +46,13 @@
             not_so_gender = document.getElementById("gender").innerHTML
             profile_edit.style.display = "flex"
             profile_render.style.display = "none"
-            value_set(not_so_name, not_so_age, not_so_city, not_so_gender)
+            value_set(not_so_name, not_so_age, not_so_gender)
         }
 
-        function value_set(noname, age, city, gender) {
+        function value_set(noname, age, gender) {
 
             document.getElementById("username_edit").value = noname
             document.getElementById("age_edit").value = age
-            document.getElementById("city_edit").value = city
 
             if (gender === "female") {
                 document.getElementById("female_edit").checked = true;
@@ -80,5 +76,4 @@
 
     </script>
 </body>
-
 </html>

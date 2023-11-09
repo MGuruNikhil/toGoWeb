@@ -20,20 +20,25 @@ const searchButton = document.getElementById("searchButton");
 const cityInput = document.getElementById("city");
 const searchResults = document.getElementById("searchResults");
 
+render_url()
+
 // Handle form submission
-searchButton.addEventListener("click", () => {
+function search() {
 
     const cityToSearch = cityInput.value.trim();
 
     if (cityToSearch === "") {
-        alert("Please enter a city name.");
-        return;
+        document.getElementById("title").innerHTML = "please enter a city name"
+        return
     }
 
     // Search for users with matching city
     searchUsersByCity(cityToSearch);
-});
+}
 
+searchButton.addEventListener("click", () => {
+    search()
+})
 // Function to search users by city
 function searchUsersByCity(city) {
     // Clear previous search results
@@ -54,7 +59,7 @@ function searchUsersByCity(city) {
                 }
             }
         } else {
-            searchResults.innerHTML = "No matching users found.";
+            searchResults.innerHTML = "<div class='border border-black rounded-lg p-2 m-2'>no guides found at "+city+"</div>";
         }
     });
 }
@@ -63,24 +68,20 @@ function searchUsersByCity(city) {
 function displayUserProfile(user) {
     const profileDiv = document.createElement("div");
     profileDiv.classList.add("user-profile");
-    profileDiv.style.cssText = `
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin: 10px;
-        background-color: #f9f9f9;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        max-width: 300px; /* Adjust the width as needed */
-    `;
+    profileDiv.classList.add("border")
+    profileDiv.classList.add("border-black")
+    profileDiv.classList.add("rounded-lg")
+    profileDiv.classList.add("p-2")
+    profileDiv.classList.add("m-2")
 
     const nameElement = document.createElement("p");
-    nameElement.textContent = `Name: ${user.username}`;
+    nameElement.textContent = `name: ${user.username}`;
 
     const ageElement = document.createElement("p");
-    ageElement.textContent = `Age: ${user.age}`;
+    ageElement.textContent = `age: ${user.age}`;
 
     const genderElement = document.createElement("p");
-    genderElement.textContent = `Gender: ${user.gender}`;
+    genderElement.textContent = `gender: ${user.gender}`;
 
     // Add more elements for other profile details (e.g., email, mobile number)
 
@@ -90,4 +91,14 @@ function displayUserProfile(user) {
 
     // Append the user profile to the search results
     searchResults.appendChild(profileDiv);
+}
+
+function render_url(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const pcity = urlParams.get('city');
+    document.getElementById("city").value = pcity
+    if(pcity !== ''){
+        search()
+    }
 }

@@ -6,7 +6,7 @@ const database = getDatabase(app);
 var userId = null;
 auth.onAuthStateChanged(user => {
     if (user) {
-        console.log("Logged in");
+        console.log("logged in");
         userId = user.uid;
         console.log(userId);
     } else {
@@ -29,17 +29,46 @@ onValue(ref(database, '/cityImgs'), (snapshot) => {
         if (cityimgs.hasOwnProperty(city)) {
           const cityimg = document.createElement('img');
           cityimg.src = cityimgs[city];
+          cityimg.classList.add("rounded-xl")
+          cityimg.classList.add("grow")
       
           const holdmetight = document.getElementById('imghold');
           const cityname = document.createElement('p');
           cityname.textContent = city;
+          cityname.classList.add("text-center")
       
           const citygallery = document.createElement('div');
           citygallery.appendChild(cityimg);
           citygallery.appendChild(cityname);
+          citygallery.classList.add("p-2")
+          citygallery.classList.add("bg-[#f9ac40]")
+          citygallery.classList.add("rounded-xl")
+          citygallery.classList.add("flex")
+          citygallery.classList.add("flex-col")
+          citygallery.classList.add("cursor-pointer")
+          citygallery.onclick = () => { window.location.href = "guide.html?city="+city }
       
           holdmetight.appendChild(citygallery);
         }}
 }, {
     onlyOnce: true
-});
+})
+
+onValue(ref(database, '/city'), (snapshot) => {
+    const citieslist = snapshot.val() || "--select city--";
+    const cities = citieslist.cities.split(',');
+    const selectElement = document.getElementById('city');
+
+    cities.forEach((index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = index;
+        selectElement.appendChild(option);
+    })
+
+    selectElement.classList.add('bg-[#f9ac40]', 'rounded-lg', 'focus:ring-[#ff534f]', 'py-1', 'px-2.5');
+    selectElement.setAttribute('required', 'true');
+
+}, {
+    onlyOnce: true
+})
