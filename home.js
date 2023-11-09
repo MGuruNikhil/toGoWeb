@@ -42,4 +42,23 @@ onValue(ref(database, '/cityImgs'), (snapshot) => {
         }}
 }, {
     onlyOnce: true
-});
+})
+
+onValue(ref(database, '/city'), (snapshot) => {
+    const citieslist = snapshot.val() || "--select city--";
+    const cities = citieslist.cities.split(',');
+    const selectElement = document.getElementById('city');
+
+    cities.forEach((index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = index;
+        selectElement.appendChild(option);
+    })
+
+    selectElement.classList.add('bg-[#f9ac40]', 'rounded-lg', 'focus:ring-[#ff534f]', 'py-1', 'px-2.5');
+    selectElement.setAttribute('required', 'true');
+
+}, {
+    onlyOnce: true
+})
