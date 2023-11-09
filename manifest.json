@@ -9,7 +9,8 @@
     "icons": [
         {
             "src": "togo.png",
-            "type": "image/png",
+            "type": "image/png",      
+            "purpose": "maskable",
             "sizes": "400x400"
         }
     ]
