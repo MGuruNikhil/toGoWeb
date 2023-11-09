@@ -6,7 +6,7 @@ const database = getDatabase(app);
 var userId = null;
 auth.onAuthStateChanged(user => {
     if (user) {
-        console.log("Logged in");
+        console.log("logged in");
         userId = user.uid;
         console.log(userId);
     } else {

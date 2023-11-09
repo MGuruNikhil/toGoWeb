@@ -23,7 +23,7 @@
         <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="username_edit" type="text" placeholder="username">
         <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age_edit" type="number" placeholder="age">
         <select id="city_edit" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
-            <option selected disabled value="">--select city--</option>
+
         </select> 
         <div>
             gender :
@@ -46,14 +46,13 @@
             not_so_gender = document.getElementById("gender").innerHTML
             profile_edit.style.display = "flex"
             profile_render.style.display = "none"
-            value_set(not_so_name, not_so_age, not_so_city, not_so_gender)
+            value_set(not_so_name, not_so_age, not_so_gender)
         }
 
-        function value_set(noname, age, city, gender) {
+        function value_set(noname, age, gender) {
 
             document.getElementById("username_edit").value = noname
             document.getElementById("age_edit").value = age
-            document.getElementById("city_edit").value = city
 
             if (gender === "female") {
                 document.getElementById("female_edit").checked = true;
