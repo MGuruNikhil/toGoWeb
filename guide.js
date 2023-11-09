@@ -54,7 +54,7 @@ function searchUsersByCity(city) {
                 }
             }
         } else {
-            searchResults.innerHTML = "no matching guides found.";
+            searchResults.innerHTML = "<div class='border border-black rounded-lg p-2 m-2'>no guides found at "+city+"</div>";
         }
     });
 }
@@ -63,9 +63,11 @@ function searchUsersByCity(city) {
 function displayUserProfile(user) {
     const profileDiv = document.createElement("div");
     profileDiv.classList.add("user-profile");
-    profileDiv.style.cssText = `
-        margin: 10px;
-    `;
+    profileDiv.classList.add("border")
+    profileDiv.classList.add("border-black")
+    profileDiv.classList.add("rounded-lg")
+    profileDiv.classList.add("p-2")
+    profileDiv.classList.add("m-2")
 
     const nameElement = document.createElement("p");
     nameElement.textContent = `name: ${user.username}`;
