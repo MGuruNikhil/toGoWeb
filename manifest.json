@@ -2,7 +2,7 @@
     "name": "togo",
     "short_name": "togo",
     "description": "the official togo pwa",
-    "start_url": "/toGoWeb",
+    "start_url": ".",
     "display": "standalone",
     "background_color": "#ff534f",
     "theme_color": "#000000",
