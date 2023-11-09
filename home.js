@@ -45,6 +45,8 @@ onValue(ref(database, '/cityImgs'), (snapshot) => {
           citygallery.classList.add("rounded-xl")
           citygallery.classList.add("flex")
           citygallery.classList.add("flex-col")
+          citygallery.classList.add("cursor-pointer")
+          citygallery.onclick = () => { window.location.href = "guide.html?city="+city }
       
           holdmetight.appendChild(citygallery);
         }}
