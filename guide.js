@@ -20,19 +20,21 @@ const searchButton = document.getElementById("searchButton");
 const cityInput = document.getElementById("city");
 const searchResults = document.getElementById("searchResults");
 
+render_url()
+
 // Handle form submission
-searchButton.addEventListener("click", () => {
+function search() {
 
     const cityToSearch = cityInput.value.trim();
 
     if (cityToSearch === "") {
-        alert("please enter a city name.");
-        return;
+        document.getElementById("title").innerHTML = "please enter a city name"
+        return
     }
 
     // Search for users with matching city
     searchUsersByCity(cityToSearch);
-});
+}
 
 // Function to search users by city
 function searchUsersByCity(city) {
@@ -86,4 +88,12 @@ function displayUserProfile(user) {
 
     // Append the user profile to the search results
     searchResults.appendChild(profileDiv);
+}
+
+function render_url(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const city = urlParams.get('city');
+    document.getElementById("city").value = city
+    search()
 }
