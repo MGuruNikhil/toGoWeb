@@ -10,8 +10,8 @@
         {
             "src": "togo.png",
             "type": "image/png",      
-            "purpose": "maskable",
-            "sizes": "400x400"
+            "sizes": "400x400",
+            "purpose": "maskable"
         }
     ]
 }
