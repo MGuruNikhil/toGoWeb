@@ -1,4 +1,4 @@
-import app from "./firebaseconfig.js";
+import app from "../firebaseconfig.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 import { getDatabase, ref, onValue, orderByChild, query, equalTo } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
 const auth = getAuth(app);
@@ -55,7 +55,7 @@ function searchUsersByCity(city) {
             for (const userId in userData) {
                 const user = userData[userId];
                 if (user.city === city) {
-                    displayUserProfile(user);
+                    displayUserProfile(user,userId);
                 }
             }
         } else {
@@ -65,7 +65,7 @@ function searchUsersByCity(city) {
 }
 
 // Function to display a user's profile
-function displayUserProfile(user) {
+function displayUserProfile(user, userId) {
     const profileDiv = document.createElement("div");
     profileDiv.classList.add("user-profile");
     profileDiv.classList.add("border")
@@ -73,6 +73,7 @@ function displayUserProfile(user) {
     profileDiv.classList.add("rounded-lg")
     profileDiv.classList.add("p-2")
     profileDiv.classList.add("m-2")
+    profileDiv.onclick = () => {window.location.href='../guide/index.html?uid=' + userId}
 
     const nameElement = document.createElement("p");
     nameElement.textContent = `name: ${user.username}`;
