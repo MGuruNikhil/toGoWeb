@@ -15,10 +15,12 @@ auth.onAuthStateChanged(user => {
             const age = userData.age || 'Anonymous';
             const city = userData.city || 'Anonymous';
             const gender = userData.gender || 'Anonymous';
+            const usertype = userData.usertype || 'Anonymous';
             document.getElementById("name").innerText = noname;
             document.getElementById("age").innerText = age;
             document.getElementById("gender").innerText = gender;
             document.getElementById("city").innerText = city;
+            document.getElementById("usertype").innerText = usertype;
         }, {
             onlyOnce: true
         });
@@ -41,6 +43,7 @@ edit.addEventListener('click', () => {
     const username_edit = document.getElementById("username_edit").value
     const age_edit = document.getElementById("age_edit").value
     const city_edit = document.getElementById("city_edit").value
+    const usertype_edit = document.getElementById("usertype_edit").value
     const gG = document.getElementsByName('GENDER_EDIT');
     var gender_edit = "";
     for (let i = 0; i < gG.length; i++) {
@@ -53,6 +56,7 @@ edit.addEventListener('click', () => {
         age: age_edit,
         city: city_edit,
         gender: gender_edit,
+        usertype: usertype_edit,
     };
     console.log(profileObj);
     const reference = ref(database, 'users/' + userId);
