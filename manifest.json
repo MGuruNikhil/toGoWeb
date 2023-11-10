@@ -1,7 +1,7 @@
 {
     "name": "togo",
     "short_name": "togo",
-    "description": "the official togo pwa",
+    "description": "the official togo pwa :D",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ff534f",
