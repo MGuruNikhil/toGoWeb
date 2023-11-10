@@ -73,6 +73,7 @@ function displayUserProfile(user, userId) {
     profileDiv.classList.add("rounded-lg")
     profileDiv.classList.add("p-2")
     profileDiv.classList.add("m-2")
+    profileDiv.classList.add("cursor-pointer")
     profileDiv.onclick = () => {window.location.href='../guide/index.html?uid=' + userId}
 
     const nameElement = document.createElement("p");
