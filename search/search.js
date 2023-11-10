@@ -20,7 +20,6 @@ const searchButton = document.getElementById("searchButton");
 const cityInput = document.getElementById("city");
 const searchResults = document.getElementById("searchResults");
 
-render_url()
 
 // Handle form submission
 function search() {
@@ -117,6 +116,7 @@ onValue(ref(database, '/city'), (snapshot) => {
 
     selectElement.classList.add('bg-[#f9ac40]', 'rounded-lg', 'focus:ring-[#ff534f]', 'py-1', 'px-2.5');
     selectElement.setAttribute('required', 'true');
+    render_url()
 
 }, {
     onlyOnce: true
