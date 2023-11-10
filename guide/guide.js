@@ -8,7 +8,7 @@ auth.onAuthStateChanged(user => {
         console.log("Logged in");
         render_url()
     } else {
-        window.location.href = `login.html`;
+        window.location.href = `../login.html`;
     }
 });
 
@@ -23,10 +23,12 @@ function render_url(){
         const age = userData.age || 'Anonymous';
         const city = userData.city || 'Anonymous';
         const gender = userData.gender || 'Anonymous';
+        const usertype = userData.usertype || 'Anonymous';
         document.getElementById("name").innerText = noname;
         document.getElementById("age").innerText = age;
         document.getElementById("gender").innerText = gender;
         document.getElementById("city").innerText = city;
+        document.getElementById("usertype").innerText = usertype;
     }, {
         onlyOnce: true
     })
