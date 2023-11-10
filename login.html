@@ -12,7 +12,7 @@
     <div class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
         <div class="text-[5vw] md:text-[3rem] mb-2">login</div>
         <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black"  id="email" type="text" placeholder="email">
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="password" type="password" placeholder="password">
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="password" type="password" placeholder="password" onkeydown="if(event.key==='Enter'){document.getElementById('login').click()}">
         <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="login">login</button>
         <div id="result"></div>
         <div>new here? <a class="font-bold" href="signup.html">register now</a></div>

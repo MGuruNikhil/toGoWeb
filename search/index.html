@@ -11,7 +11,7 @@
     <div class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
         <h1>search guide by city</h1>
         <label id="title" for="city">enter city name:</label>
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5" type="text" id="city" name="city" required>
+        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5" type="text" id="city" name="city" required onkeydown="if(event.key==='Enter'){document.getElementById('searchButton').click()}">
         <button  class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="searchButton">search</button>
         <div class="bg-[#f9ac40] rounded-lg flex flex-col gap-2" id="searchResults"></div>
         <script type="module" src="search.js"></script>
