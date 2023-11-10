@@ -53,6 +53,13 @@ edit.addEventListener('click', () => {
         if (gG[i].checked) {
             gender_edit = gG[i].value;
         }
+    }    
+    const lL = document.getElementsByName('laguages_edit');
+    var language = [];
+    for (let i = 0; i < lL.length; i++) {
+        if (lL[i].checked) {
+            language.push(lL[i].value)
+        }
     }
     const profileObj = {
         pfp: pfp_edit,
@@ -96,4 +103,30 @@ getciti.addEventListener('click', () => {
     }, {
         onlyOnce: true
     });
+})
+
+onValue(ref(database, '/language'), (snapshot) => {
+    const languageslist = snapshot.val()
+    const languages = languageslist.languages.split(',')
+    const selectElement = document.getElementById('languages_edit')
+    
+    languages.forEach((index) => {
+        const selectElementdiv = document.createElement('div')
+        const language = document.createElement('input')
+        language.type = "checkbox"
+        language.value = index
+        language.name = 'languages_edit'
+        const language_name = document.createElement('label')
+        language_name.textContent = index
+        language_name.htmlFor = language
+        language_name.classList.add("mx-2")
+        selectElementdiv.appendChild(language)
+        selectElementdiv.appendChild(language_name)
+        selectElement.appendChild(selectElementdiv)
+    })
+
+    selectElement.setAttribute('required', 'true')
+
+}, {
+    onlyOnce: true
 })
