@@ -11,11 +11,13 @@ auth.onAuthStateChanged(user => {
         console.log(userId);
         onValue(ref(database, '/users/' + userId), (snapshot) => {
             const userData = snapshot.val() || {};
+            const pfp = userData.pfp || 'togo.jpeg';
             const noname = userData.username || 'Anonymous';
             const age = userData.age || 'Anonymous';
             const city = userData.city || 'Anonymous';
             const gender = userData.gender || 'Anonymous';
             const usertype = userData.usertype || 'Anonymous';
+            document.getElementById("pfp").src = pfp;
             document.getElementById("name").innerText = noname;
             document.getElementById("age").innerText = age;
             document.getElementById("gender").innerText = gender;
@@ -40,6 +42,7 @@ logOut.addEventListener('click', () => {
 
 const edit = document.getElementById("done")
 edit.addEventListener('click', () => {
+    const pfp_edit = document.getElementById("pfp_edit").value
     const username_edit = document.getElementById("username_edit").value
     const age_edit = document.getElementById("age_edit").value
     const city_edit = document.getElementById("city_edit").value
@@ -52,6 +55,7 @@ edit.addEventListener('click', () => {
         }
     }
     const profileObj = {
+        pfp: pfp_edit,
         username: username_edit,
         age: age_edit,
         city: city_edit,

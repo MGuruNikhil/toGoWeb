@@ -19,11 +19,13 @@ function render_url(){
     console.log(userId);
     onValue(ref(database, '/users/' + userId), (snapshot) => {
         const userData = snapshot.val() || {};
+        const pfp = userData.pfp || '../togo.jpeg';
         const noname = userData.username || 'Anonymous';
         const age = userData.age || 'Anonymous';
         const city = userData.city || 'Anonymous';
         const gender = userData.gender || 'Anonymous';
         const usertype = userData.usertype || 'Anonymous';
+        document.getElementById("pfp").src = pfp;
         document.getElementById("name").innerText = noname;
         document.getElementById("age").innerText = age;
         document.getElementById("gender").innerText = gender;
