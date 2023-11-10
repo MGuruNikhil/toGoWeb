@@ -28,6 +28,13 @@ async function createUser() {
     const username = document.getElementById("username").value;
     const age = document.getElementById("age").value;
     const city = document.getElementById("city").value;
+    const lL = document.getElementsByName('laguages');
+    var language = [];
+    for (let i = 0; i < lL.length; i++) {
+        if (lL[i].checked) {
+            language.push(lL[i].value)
+        }
+    }
     const gG = document.getElementsByName('GENDER');
     var gender = "";
     for (let i = 0; i < gG.length; i++) {
@@ -46,6 +53,7 @@ async function createUser() {
                 age: age,
                 city: city,
                 gender: gender,
+                language: language,
                 email: email
             };
             console.log(profileObj);
@@ -85,4 +93,30 @@ onValue(ref(database, '/city'), (snapshot) => {
 
 }, {
     onlyOnce: true
-});
+})
+
+onValue(ref(database, '/language'), (snapshot) => {
+    const languageslist = snapshot.val() || "--select city--"
+    const languages = languageslist.languages.split(',')
+    const selectElement = document.getElementById('languages')
+    
+    languages.forEach((index) => {
+        const selectElementdiv = document.createElement('div')
+        const language = document.createElement('input')
+        language.type = "checkbox"
+        language.value = index
+        language.name = 'languages'
+        const language_name = document.createElement('label')
+        language_name.textContent = index
+        language_name.htmlFor = language
+        language_name.classList.add("mx-2")
+        selectElementdiv.appendChild(language)
+        selectElementdiv.appendChild(language_name)
+        selectElement.appendChild(selectElementdiv)
+    })
+
+    selectElement.setAttribute('required', 'true');
+
+}, {
+    onlyOnce: true
+})

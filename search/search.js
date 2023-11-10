@@ -132,6 +132,7 @@ onValue(ref(database, '/language'), (snapshot) => {
         const language = document.createElement('input')
         language.type = "checkbox"
         language.value = index
+        language.name = 'languages'
         const language_name = document.createElement('label')
         language_name.textContent = index
         language_name.htmlFor = language
