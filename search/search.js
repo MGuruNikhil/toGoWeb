@@ -1,4 +1,4 @@
-import app from "..firebaseconfig.js";
+import app from "../firebaseconfig.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 import { getDatabase, ref, onValue, orderByChild, query, equalTo } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
 const auth = getAuth(app);
