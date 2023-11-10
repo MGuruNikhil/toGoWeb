@@ -1,28 +1,30 @@
-import app from "./firebaseconfig.js";
-import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
-const auth = getAuth(app);
-const database = getDatabase(app);
-var userId = null;
+import app from "./firebaseconfig.js"
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js"
+const auth = getAuth(app)
+const database = getDatabase(app)
+var userId = null
 auth.onAuthStateChanged(user => {
     if (user) {
-        console.log("Logged in");
-        userId = user.uid;
-        console.log(userId);
+        console.log("Logged in")
+        userId = user.uid
+        console.log(userId)
         onValue(ref(database, '/users/' + userId), (snapshot) => {
-            const userData = snapshot.val() || {};
-            const pfp = userData.pfp || 'togo.jpeg';
-            const noname = userData.username || 'Anonymous';
-            const age = userData.age || 'Anonymous';
-            const city = userData.city || 'Anonymous';
-            const gender = userData.gender || 'Anonymous';
-            const usertype = userData.usertype || 'Anonymous';
-            document.getElementById("pfp").src = pfp;
-            document.getElementById("name").innerText = noname;
-            document.getElementById("age").innerText = age;
-            document.getElementById("gender").innerText = gender;
-            document.getElementById("city").innerText = city;
-            document.getElementById("usertype").innerText = usertype;
+            const userData = snapshot.val() || {}
+            const pfp = userData.pfp || 'togo.jpeg'
+            const noname = userData.username || 'Anonymous'
+            const age = userData.age || 'Anonymous'
+            const city = userData.city || 'Anonymous'
+            const language = userData.language || 'Anonymous'
+            const gender = userData.gender || 'Anonymous'
+            const usertype = userData.usertype || 'Anonymous'
+            document.getElementById("pfp").src = pfp
+            document.getElementById("name").innerText = noname
+            document.getElementById("age").innerText = age
+            document.getElementById("gender").innerText = gender
+            document.getElementById("city").innerText = city
+            document.getElementById("language").innerText = language
+            document.getElementById("usertype").innerText = usertype
         }, {
             onlyOnce: true
         });
@@ -47,18 +49,18 @@ edit.addEventListener('click', () => {
     const age_edit = document.getElementById("age_edit").value
     const city_edit = document.getElementById("city_edit").value
     const usertype_edit = document.getElementById("usertype_edit").value
-    const gG = document.getElementsByName('GENDER_EDIT');
-    var gender_edit = "";
+    const gG = document.getElementsByName('GENDER_EDIT')
+    var gender_edit = ""
     for (let i = 0; i < gG.length; i++) {
         if (gG[i].checked) {
-            gender_edit = gG[i].value;
+            gender_edit = gG[i].value
         }
     }    
-    const lL = document.getElementsByName('laguages_edit');
-    var language = [];
+    const lL = document.getElementsByName('languages_edit')
+    var language_edit = [];
     for (let i = 0; i < lL.length; i++) {
         if (lL[i].checked) {
-            language.push(lL[i].value)
+            language_edit.push(lL[i].value)
         }
     }
     const profileObj = {
@@ -67,6 +69,7 @@ edit.addEventListener('click', () => {
         age: age_edit,
         city: city_edit,
         gender: gender_edit,
+        language: language_edit,
         usertype: usertype_edit,
     };
     console.log(profileObj);

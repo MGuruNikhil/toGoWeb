@@ -28,7 +28,7 @@ async function createUser() {
     const username = document.getElementById("username").value;
     const age = document.getElementById("age").value;
     const city = document.getElementById("city").value;
-    const lL = document.getElementsByName('laguages');
+    const lL = document.getElementsByName('languages');
     var language = [];
     for (let i = 0; i < lL.length; i++) {
         if (lL[i].checked) {
