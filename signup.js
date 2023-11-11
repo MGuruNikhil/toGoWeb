@@ -1,10 +1,10 @@
-import app from "./firebaseconfig.js";
 import {
-    getAuth,
     createUserWithEmailAndPassword,
+    getAuth,
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+import { getDatabase, onValue, ref, set } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+import app from "./firebaseconfig.js";
 const auth = getAuth(app);
 const database = getDatabase(app);
 onAuthStateChanged(auth, (user) => {
@@ -21,6 +21,7 @@ const signUp = document.querySelector('#signup');
 signUp.addEventListener('click', createUser);
 
 async function createUser() {
+    const pfp = document.getElementById("pfp").value || 'togo.jpeg';
     const mail = document.getElementById('email');
     const email = mail.value;
     const pWord = document.getElementById('password');
@@ -42,6 +43,7 @@ async function createUser() {
             gender = gG[i].value;
         }
     }
+    const usertype = document.getElementById('usertype').value;
     await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
@@ -49,12 +51,13 @@ async function createUser() {
             const userId = user.uid;
             console.log(user);
             const profileObj = {
+                pfp: pfp,
                 username: username,
                 age: age,
                 city: city,
                 gender: gender,
                 language: language,
-                email: email
+                usertype: usertype
             };
             console.log(profileObj);
             const reference = ref(database, 'users/' + userId);
