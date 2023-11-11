@@ -1,7 +1,7 @@
 {
     "name": "togo",
     "short_name": "togo",
-    "description": "the official togo pwa",
+    "description": "the official togo pwa :D",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ff534f",
@@ -10,8 +10,7 @@
         {
             "src": "togo.png",
             "type": "image/png",      
-            "sizes": "400x400",
-            "purpose": "maskable"
+            "sizes": "400x400"
         }
     ]
 }
