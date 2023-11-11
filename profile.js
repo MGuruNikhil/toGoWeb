@@ -1,6 +1,6 @@
 import app from "./firebaseconfig.js"
-import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js"
+import { getAuth, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"
+import { getDatabase, ref, set, onValue, remove } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js"
 const auth = getAuth(app)
 const database = getDatabase(app)
 var userId = null
@@ -133,3 +133,22 @@ onValue(ref(database, '/language'), (snapshot) => {
 }, {
     onlyOnce: true
 })
+
+const deleteBtn = document.getElementById('delete');
+deleteBtn.addEventListener('click', () => {
+    const user = auth.currentUser;
+    remove(ref(database, 'users/' + user.uid))
+    .then(function () {
+        // Delete
+        console.log('you have successfully deleted');
+    })
+    .catch(function (error) {
+        console.error("Error removing item: ", error);
+    });
+    deleteUser(user).then(() => {
+        // User deleted.
+      }).catch((error) => {
+        // An error ocurred
+        // ...
+      });
+});
