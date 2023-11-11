@@ -41,8 +41,13 @@
             <input type="radio" id="male_edit" name="GENDER_EDIT" value="male">
             male
         </div>
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="usertype_edit" type="text" placeholder="usertype">
+        <select name="usertype_edit" id="usertype_edit">
+            <option value="tourist">tourist</option>
+            <option value="guide">guide</option>
+        </select>
         <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="done" onclick="edit_hide()">done</button>
+        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="delete">delete</button>
+
     </div>
     <script>
         profile_render = document.getElementById("profile-render")
