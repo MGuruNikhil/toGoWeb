@@ -8,8 +8,8 @@
     <script src="signup.js" type="module"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex min-h-screen items-center justify-center bg-[#ff534f]">
-    <div class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
+<body class="flex min-h-screen items-center justify-center bg-[#5BA199]">
+    <div class="bg-[#469597] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
         <div class="text-[5vw] md:text-[3rem] mb-2">signup</div>
         <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="pfp" type="text" placeholder="pfp">
         <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="username" type="text"
@@ -22,7 +22,7 @@
         </select>
         <div>
             known languages :
-            <div id="languages">
+            <div id="languages" class="grid grid-cols-2 gap-2">
 
             </div>
         </div>
@@ -33,7 +33,7 @@
             <input type="radio" id="male" name="GENDER" value="male">
             male
         </div>        
-        <select name="usertype" id="usertype">
+        <select name="usertype" id="usertype" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
             <option value="tourist">tourist</option>
             <option value="guide">guide</option>
         </select>        
