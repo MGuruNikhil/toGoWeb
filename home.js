@@ -42,8 +42,8 @@ onValue(ref(database, '/cityImgs'), (snapshot) => {
           cityname.classList.add("text-[#f9ac40]")
           cityname.classList.add("text-[10vw]")
           cityname.classList.add("lg:text-[100px]")
-          cityname.style.textStroke = '2px black';  
-          cityname.style.WebkitTextStroke = '2px black';
+          cityname.style.textStroke = '2px black'
+          cityname.style.WebkitTextStroke = '2px black'
       
           const citygallery = document.createElement('div');
           citygallery.style.backgroundImage = "url("+cityimgs[city]+")";
@@ -58,6 +58,7 @@ onValue(ref(database, '/cityImgs'), (snapshot) => {
           citygallery.classList.add("flex")
           citygallery.classList.add("flex-col")
           citygallery.classList.add("cursor-pointer")
+          
           citygallery.onclick = () => { window.location.href='search/index.html?city=' + city }
           
       
