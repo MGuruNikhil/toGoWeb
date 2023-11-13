@@ -41,13 +41,13 @@
         <button class="bg-[#BBC6C8] rounded-xl m-5 px-5 py-3" id="book" onclick="booking()">book them now</button>
     </div>
     <div class="max-w-[1000px] mx-auto">
-        <div id="select" class="bg-[#ffd75b] m-5 text-[4vw] relative md:text-[2rem] p-10 rounded-xl flex flex-col gap-2 hidden">
-            <div class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 cursor-pointer" onclick="booking()">&#10006;</div>
+        <div id="select" class="bg-[#469597] m-5 text-[4vw] relative md:text-[2rem] p-10 rounded-xl flex flex-col gap-2 hidden">
+            <div class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 cursor-pointer text-3xl" onclick="booking()">&#10006;</div>
             book by choosing a city name
             <select id="city" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
                 <option selected disabled value="">--select city--</option>
             </select>        
-            <button  class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" onclick="city = document.getElementById('city').value;window.location.href='search/index.html?city=' + city">search</button>
+            <button  class="mt-2 bg-[#BBC6C8] px-3 py-2 rounded-xl" onclick="city = document.getElementById('city').value;window.location.href='search/index.html?city=' + city">search</button>
         </div>
         <div id="imghold" class="text-[3vw] my-3 mx-5 grid grid-cols-2 gap-4">
 
