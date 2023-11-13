@@ -41,6 +41,6 @@ We welcome suggestions for new features! Please [create a new issue](https://git
 
 ## License
 
-By contributing to Togo, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+By contributing to Togo, you agree that your contributions will be licensed under the [MIT License](LICENSE.md).
 
 Thank you for contributing to Togo! 🌍✨
