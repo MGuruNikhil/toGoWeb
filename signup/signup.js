@@ -21,7 +21,7 @@ const signUp = document.querySelector('#signup');
 signUp.addEventListener('click', createUser);
 
 async function createUser() {
-    const pfp = document.getElementById("pfp").value || '../togo.jpeg'
+    const pfp = document.getElementById("pfp").value || '../togo.png'
     const mail = document.getElementById('email')
     const email = mail.value
     const pWord = document.getElementById('password')
