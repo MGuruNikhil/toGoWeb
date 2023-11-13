@@ -21,29 +21,29 @@ const signUp = document.querySelector('#signup');
 signUp.addEventListener('click', createUser);
 
 async function createUser() {
-    const pfp = document.getElementById("pfp").value || 'togo.jpeg';
-    const mail = document.getElementById('email');
-    const email = mail.value;
-    const pWord = document.getElementById('password');
-    const password = pWord.value;
-    const username = document.getElementById("username").value;
-    const age = document.getElementById("age").value;
-    const city = document.getElementById("city").value;
-    const lL = document.getElementsByName('languages');
-    var language = [];
+    const pfp = document.getElementById("pfp").value || 'togo.jpeg'
+    const mail = document.getElementById('email')
+    const email = mail.value
+    const pWord = document.getElementById('password')
+    const password = pWord.value
+    const username = document.getElementById("username").value
+    const age = document.getElementById("age").value
+    const city = document.getElementById("city").value
+    const lL = document.getElementsByName('languages')
+    var language = []
     for (let i = 0; i < lL.length; i++) {
         if (lL[i].checked) {
             language.push(lL[i].value)
         }
     }
-    const gG = document.getElementsByName('GENDER');
-    var gender = "";
+    const gG = document.getElementsByName('GENDER')
+    var gender = ""
     for (let i = 0; i < gG.length; i++) {
         if (gG[i].checked) {
             gender = gG[i].value;
         }
     }
-    const usertype = document.getElementById('usertype').value;
+    const usertype = document.getElementById('usertype').value
     await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
