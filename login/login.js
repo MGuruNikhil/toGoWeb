@@ -1,4 +1,4 @@
-import app from "./firebaseconfig.js";
+import app from "../firebaseconfig.js";
 import {
     getAuth,
     signInWithEmailAndPassword,
@@ -8,7 +8,7 @@ var userId = null;
 const auth = getAuth(app);
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        window.location.href = "index.html";
+        window.location.href = "../";
     }
     else {
         //nothing to do
@@ -29,7 +29,7 @@ function userLogin() {
             const user = userCredential.user;
             userId = user.uid;
             console.log(user);
-            window.location.href = `index.html`;
+            window.location.href = `../`;
         })
         .catch((error) => {
             const errorCode = error.code;

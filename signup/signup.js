@@ -4,12 +4,12 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 import { getDatabase, onValue, ref, set } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
-import app from "./firebaseconfig.js";
+import app from "../firebaseconfig.js";
 const auth = getAuth(app);
 const database = getDatabase(app);
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        window.location.href = "index.html";
+        window.location.href = "../";
     }
     else {
         //nothing to do
@@ -21,7 +21,7 @@ const signUp = document.querySelector('#signup');
 signUp.addEventListener('click', createUser);
 
 async function createUser() {
-    const pfp = document.getElementById("pfp").value || 'togo.jpeg'
+    const pfp = document.getElementById("pfp").value || '../togo.jpeg'
     const mail = document.getElementById('email')
     const email = mail.value
     const pWord = document.getElementById('password')

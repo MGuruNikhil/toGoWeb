@@ -8,7 +8,7 @@ auth.onAuthStateChanged(user => {
         console.log("Logged in");
         render_url()
     } else {
-        window.location.href = `../login.html`;
+        window.location.href = `../login`;
     }
 });
 

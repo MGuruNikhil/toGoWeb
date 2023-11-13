@@ -1,4 +1,4 @@
-import app from "./firebaseconfig.js"
+import app from "../firebaseconfig.js"
 import { getAuth, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"
 import { getDatabase, ref, set, onValue, remove } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js"
 const auth = getAuth(app)
@@ -11,7 +11,7 @@ auth.onAuthStateChanged(user => {
         console.log(userId)
         onValue(ref(database, '/users/' + userId), (snapshot) => {
             const userData = snapshot.val() || {}
-            const pfp = userData.pfp || 'togo.png'
+            const pfp = userData.pfp || '../togo.png'
             const noname = userData.username || 'Anonymous'
             const age = userData.age || 'Anonymous'
             const city = userData.city || 'Anonymous'
@@ -29,14 +29,14 @@ auth.onAuthStateChanged(user => {
             onlyOnce: true
         });
     } else {
-        window.location.href = `login.html`;
+        window.location.href = `../login`;
     }
 });
 
 const logOut = document.getElementById("logout");
 logOut.addEventListener('click', () => {
     signOut(auth).then(() => {
-        window.location.href = "login.html";
+        window.location.href = "../login";
     }).catch((error) => {
         console.log(error);
     });
