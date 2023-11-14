@@ -8,7 +8,7 @@ auth.onAuthStateChanged(user => {
         console.log("Logged in");
         render_url()
     } else {
-        window.location.href = `../login.html`;
+        window.location.href = `../login`;
     }
 });
 
@@ -19,7 +19,7 @@ function render_url(){
     console.log(userId);
     onValue(ref(database, '/users/' + userId), (snapshot) => {
         const userData = snapshot.val() || {};
-        const pfp = userData.pfp || '../togo.jpeg';
+        const pfp = userData.pfp || '../togo.png'
         const noname = userData.username || 'Anonymous';
         const age = userData.age || 'Anonymous';
         const city = userData.city || 'Anonymous';

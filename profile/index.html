@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile</title>
     <script type="module" src="profile.js"></script>
-    <link rel="shortcut icon" href="togo.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="../togo-favicon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex min-h-screen items-center justify-center bg-[#ff534f]">
-    <div id="profile-render" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
-        <img id="pfp" class="rounded-full h-[50vw] w-[50vw] max-w-[300px] max-h-[300px]" src="togo.jpeg">
+<body class="flex min-h-screen items-center justify-center bg-[#5BA199]">
+    <div class="bg-[#469597] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2" id="profile-render">
+        <div class="flex justify-center">
+            <img id="pfp" class="rounded-full h-[50vw] w-[50vw] max-w-[300px] max-h-[300px]" src="../togo.png">
+        </div>
         <div>name: <span id="name">dummy_name</span></div>
         <div>age: <span id="age">dummy_age</span></div>
         <div>gender: <span id="gender">dummy_gender</span></div>
         <div>city: <span id="city">dummy_city</span></div>
         <div>language: <span id="language">dummy_language</span></div>
         <div>user type: <span id="usertype">dummy_usertype</span></div>
-        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="edit" onclick="edit_show()">edit</button>
-        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="logout">logout</button>
+        <button class="mt-2 bg-[#BBC6C8] px-3 py-2 rounded-xl" id="edit" onclick="edit_show()">edit</button>
+        <button class="mt-2 bg-[#BBC6C8] px-3 py-2 rounded-xl" id="logout">logout</button>
     </div>
-    <div id="profile-edit" class="bg-[#ffd75b] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2 hidden">
+    <div id="profile-edit" class="bg-[#469597] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2 hidden">
         <div class="text-[5vw] md:text-[3rem]">details - edit</div>
         <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="pfp_edit" type="text" placeholder="pfp">
         <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="username_edit" type="text" placeholder="username">
@@ -30,7 +32,7 @@
         </select>
         <div>
             known languages :
-            <div id="languages_edit">
+            <div id="languages_edit" class="grid grid-cols-2 gap-2">
 
             </div>
         </div> 
@@ -41,12 +43,12 @@
             <input type="radio" id="male_edit" name="GENDER_EDIT" value="male">
             male
         </div>
-        <select name="usertype_edit" id="usertype_edit">
+        <select name="usertype_edit" id="usertype_edit" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
             <option value="tourist">tourist</option>
             <option value="guide">guide</option>
         </select>
-        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="done" onclick="edit_hide()">done</button>
-        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="delete">delete</button>
+        <button class="mt-2 bg-[#BBC6C8] px-3 py-2 rounded-xl" id="done" onclick="edit_hide()">done</button>
+        <button class="mt-2 bg-[#BBC6C8] px-3 py-2 rounded-xl" id="delete">delete</button>
 
     </div>
     <script>
