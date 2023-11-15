@@ -47,3 +47,12 @@ function booksomeone() {
     window.location.href = '../book/index.html?guide=' + guide_userId
 }
 
+const chat = document.getElementById('chat');
+chat.addEventListener('click', chatsomeone);
+function chatsomeone() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var guide_userId = urlParams.get('uid');
+    window.location.href = '../chat/index.html?guide=' + guide_userId
+}
+
