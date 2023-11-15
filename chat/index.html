@@ -6,9 +6,15 @@
     <title>chat</title>
     <link rel="shortcut icon" href="../togo-favicon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="chat.js" type="module"></script>
 </head>
 <body class="flex flex-col min-h-screen bg-[#5BA199]">
-    <div class="w-full backdrop-blur bg-opacity-50 bg-[#E5E3E4] px-2 py-3 text-[2em]">chat person name</div>
+    <div class="w-full backdrop-blur bg-opacity-50 bg-[#E5E3E4] px-2 py-3 text-[2em] flex">
+        <span id="profile" class="flex cursor-pointer">
+            <img id="pfp" src="../togo.png" class="h-[2em]">
+            <div id="chat-name">chat person name</div>
+        </span>
+    </div>
     <div class="flex flex-col gap-2 m-2 lg:m-auto lg:min-w-[800px] max-w-[1000px] mt-4 min-h-[88vh]">
         <div class="grow flex flex-col gap-2">
             <div class="place-self-start bg-opacity-50 rounded-xl bg-[#E5E3E4] px-2 py-3 text-[1em]" id="their-msg-item">their msg</div>    
