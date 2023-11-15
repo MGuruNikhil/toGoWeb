@@ -1,6 +1,6 @@
 import app from "../firebaseconfig.js"
 import { getAuth, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"
-import { getDatabase, ref, set, onValue, remove } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js"
+import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js"
 const auth = getAuth(app)
 const database = getDatabase(app)
 var userId = null
@@ -40,6 +40,14 @@ book.addEventListener('click', () => {
     const urlParams = new URLSearchParams(queryString)
     var guide_userId = urlParams.get('guide')
 
+    var startDate = document.getElementById("start-date").value
+    var endDate = document.getElementById("end-date").value
+
+    if(startDate === '' || endDate ===''){
+        alert("enter dates bro")
+        return
+    }
+
     const guideObj = {
         bookedWith : userId,
         startDate : startDate,
@@ -54,7 +62,7 @@ book.addEventListener('click', () => {
 
     console.log(guideObj)
     const guideReference = ref(database, 'book/' + guide_userId);
-    console.log(reference);
+    console.log(guideReference);
     const newGuideReference = push(guideReference);
     set(newGuideReference, guideObj)
     .then(() => {
@@ -66,7 +74,7 @@ book.addEventListener('click', () => {
 
     console.log(userObj)
     const userReference = ref(database, 'book/' + guide_userId);
-    console.log(reference);
+    console.log(userReference);
     const newUserReference = push(userReference);
     set(newUserReference, userObj)
     .then(() => {
