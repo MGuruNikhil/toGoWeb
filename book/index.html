@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <link rel="shortcut icon" href="../togo-favicon.png" type="image/x-icon">
+    <script src="book.js" type="module"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex min-h-screen items-center justify-center bg-[#5BA199]">
+    <div class="bg-[#469597] text-[5vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
+       <div>
+            u are booking <span id="guide-name">guide</span>
+       </div>
+       <div>
+        at : <span id="city">city</span>
+       </div>
+        <div>
+           from : <input type="date">
+       </div>
+       <div>
+           to : <input type="date">
+       </div>
+       <button class="mt-2 bg-[#BBC6C8] px-3 py-2 rounded-xl grow" id="book">book</button>
+    </div>
+</body>
+</html>
