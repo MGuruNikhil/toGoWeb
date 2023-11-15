@@ -12,24 +12,38 @@
         <label id="title" for="city">enter city name:</label>
         <select id="city" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
 
-        </select> 
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="username_edit" type="text" placeholder="username">
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age" type="number" placeholder="age">
-        <div>
-            known languages :
-            <div id="languages">
-
-            </div>
+        </select>
+        <div id="addFilters" onclick="show_filters()" class="cursor-pointer text-center bg-green-400 rounded-lg py-1 px-2.5 placeholder-black">
+            add filters?
         </div>
-        <div>
-            gender :
-            <input type="radio" id="female" name="GENDER" value="female">
-            female
-            <input type="radio" id="male" name="GENDER" value="male">
-            male
+        <div id="filters" class="text-[4vw] md:text-[2rem] rounded-xl flex flex-col gap-2 hidden"> 
+            <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="username_edit" type="text" placeholder="username">
+            <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age" type="number" placeholder="age">
+            <div>
+                known languages :
+                <div id="languages" class="grid grid-cols-2 gap-2">
+
+                </div>
+            </div>
+            <div>
+                gender :
+                <input type="radio" id="female" name="GENDER" value="female">
+                female
+                <input type="radio" id="male" name="GENDER" value="male">
+                male
+            </div>
         </div>
         <button  class="mt-2 bg-[#BBC6C8] px-3 py-2 rounded-xl" id="searchButton">search</button>
         <div class="bg-[#f9ac40] rounded-lg flex flex-col gap-2" id="searchResults"></div>
+        <script>
+            addFilters = document.getElementById("addFilters")
+            filters = document.getElementById("filters")
+
+            function show_filters(){
+                addFilters.classList.toggle("hidden")
+                filters.classList.toggle("hidden")
+            }
+        </script>
         <script type="module" src="search.js"></script>
     </div>
 </body>

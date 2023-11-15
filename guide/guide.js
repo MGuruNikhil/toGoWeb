@@ -15,9 +15,9 @@ auth.onAuthStateChanged(user => {
 function render_url(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const userId = urlParams.get('uid');
-    console.log(userId);
-    onValue(ref(database, '/users/' + userId), (snapshot) => {
+    var guide_userId = urlParams.get('uid');
+    console.log(guide_userId);
+    onValue(ref(database, '/users/' + guide_userId), (snapshot) => {
         const userData = snapshot.val() || {};
         const pfp = userData.pfp || '../togo.png'
         const noname = userData.username || 'Anonymous';
@@ -38,4 +38,21 @@ function render_url(){
     })
 }
 
+const book = document.getElementById('book');
+book.addEventListener('click', booksomeone);
+function booksomeone() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var guide_userId = urlParams.get('uid');
+    window.location.href = '../book/index.html?guide=' + guide_userId
+}
+
+const chat = document.getElementById('chat');
+chat.addEventListener('click', chatsomeone);
+function chatsomeone() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var guide_userId = urlParams.get('uid');
+    window.location.href = '../chat/index.html?guide=' + guide_userId
+}
 
