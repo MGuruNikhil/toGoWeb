@@ -15,14 +15,14 @@
             <div id="chat-name">chat person name</div>
         </span>
     </div>
-    <div class="flex flex-col gap-2 m-2 lg:m-auto lg:min-w-[800px] max-w-[1000px] mt-4 min-h-[88vh]">
-        <div class="grow flex flex-col gap-2">
+    <div class="flex flex-col gap-2 m-2 lg:m-auto lg:min-w-[800px] max-w-[1000px] my-4 grow">
+        <div id="chat-room" class="grow flex flex-col gap-2">
             <div class="place-self-start bg-opacity-50 rounded-xl bg-[#E5E3E4] px-2 py-3 text-[1em]" id="their-msg-item">their msg</div>    
             <div class="place-self-end bg-opacity-50 rounded-xl bg-[#E5E3E4] px-2 py-3 text-[1em]" id="ur-msg-item">ur msg</div>
         </div>
         <div id="input_feild" class="flex gap-2">
             <input id="msg_input" type="text" class="grow p-2 block rounded-xl border border-[#5BA199] p-1 text-sm font-medium bg-gray-900 text-white" onkeydown="if(event.key==='Enter'){document.getElementById('send').click()}">
-            <button id="send" class="px-4 py-2 hover:bg-opacity-50 border-2 rounded-xl border-[#E5E3E4] text-[2em] text-[#E5E3E4] hover:text-[#5BA199] hover:bg-[#E5E3E4]"" onclick="makeg()">send</button>
+            <button id="send" class="px-4 py-2 hover:bg-opacity-50 border-2 rounded-xl border-[#E5E3E4] text-[2em] text-[#E5E3E4] hover:text-[#5BA199] hover:bg-[#E5E3E4]">send</button>
         </div>
     </div>
 </body>

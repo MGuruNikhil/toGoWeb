@@ -37,3 +37,13 @@ profile.addEventListener('click', () => {
     window.location.href = "../guide/index.html?uid=" + guide_userId
 
 })
+
+const send = document.getElementById("send")
+send.addEventListener('click', () => {
+    room = document.getElementById("chat-room")
+    msg = document.getElementById("msg_input").value
+    urmsg = document.createElement("div")
+    urmsg.innerText(msg)
+    room.appendChild(urmsg)
+    document.getElementById("msg_input").value = ""
+})
