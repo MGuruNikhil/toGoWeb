@@ -49,15 +49,86 @@ function searchUsersByCity(city) {
     onValue(filterQuery, (snapshot) => {
         if (snapshot.exists()) {
             const userData = snapshot.val()
+            const username = document.getElementById("username").value
+            const age = document.getElementById("age").value
+            const lL = document.getElementsByName('languages')
+            var language = []
+            for (let i = 0; i < lL.length; i++) {
+                if (lL[i].checked) {
+                    language.push(lL[i].value)
+                }
+            }
+            const gG = document.getElementsByName('GENDER')
+            var gender = ""
+            for (let i = 0; i < gG.length; i++) {
+                if (gG[i].checked) {
+                    gender = gG[i].value;
+                }
+            }
             
             // Iterate through matching users and display their profiles
             for (const userId in userData) {
+                const user = userData[userId]
+                // displayUserProfile(user,userId)
+                if(user.usertype != "guide") {
+                    delete userData[userId]
+                }
+            }
+
+            if(username.trim().length!=0) {
+                for (const userId in userData) {
+                    const user = userData[userId]
+                    // displayUserProfile(user,userId)
+                    if(user.username != username) {
+                        delete userData[userId]
+                    }
+                }
+            }
+
+            if(age.trim().length!=0) {
+                for (const userId in userData) {
+                    const user = userData[userId]
+                    // displayUserProfile(user,userId)
+                    if(user.age != age) {
+                        delete userData[userId]
+                    }
+                }
+            }
+
+            if(gender.trim().length!=0) {
+                for (const userId in userData) {
+                    const user = userData[userId]
+                    // displayUserProfile(user,userId)
+                    if(user.gender != gender) {
+                        delete userData[userId]
+                    }
+                }
+            }
+
+            if(language.length!=0) {
+                for (const userId in userData) {
+                    const user = userData[userId]
+                    var count = 0
+                    for(var i=0;i<language.length;i++) {
+                        for(var j=0;j<user.language.length;j++) {
+                            if(language[i]==user.language[j]) {
+                                count++;
+                                break;
+                            }
+                        }
+                    }
+                    if(count == 0) {
+                        delete userData[userId]
+                    }
+                }
+            }
+
+            for(const userId in userData) {
                 const user = userData[userId]
                 displayUserProfile(user,userId)
             }
 
             if (searchResults.childElementCount === 0){
-                var city = document.getElementById('city').value
                 searchResults.innerHTML = "<div class='border border-black rounded-lg p-2 m-2'>no guides found at "+city+"</div>"
             }
         } 
@@ -66,36 +137,33 @@ function searchUsersByCity(city) {
 
 // Function to display a user's profile
 function displayUserProfile(user, userId) {
-    if (user.usertype == "guide"){
-        const profileDiv = document.createElement("div")
-        profileDiv.classList.add("user-profile")
-        profileDiv.classList.add("border")
-        profileDiv.classList.add("border-black")
-        profileDiv.classList.add("rounded-lg")
-        profileDiv.classList.add("p-2")
-        profileDiv.classList.add("m-2")
-        profileDiv.classList.add("cursor-pointer")
-        profileDiv.onclick = () => {window.location.href='../guide/index.html?uid=' + userId}
-        
-        const nameElement = document.createElement("p")
-        nameElement.textContent = `name: ${user.username}`
-        
-        const ageElement = document.createElement("p")
-        ageElement.textContent = `age: ${user.age}`
-        
-        const genderElement = document.createElement("p")
-        genderElement.textContent = `gender: ${user.gender}`
-        
-        document.getElementById
-        // Add more elements for other profile details (e.g., email, mobile number)
+    const profileDiv = document.createElement("div")
+    profileDiv.classList.add("user-profile")
+    profileDiv.classList.add("border")
+    profileDiv.classList.add("border-black")
+    profileDiv.classList.add("rounded-lg")
+    profileDiv.classList.add("p-2")
+    profileDiv.classList.add("m-2")
+    profileDiv.classList.add("cursor-pointer")
+    profileDiv.onclick = () => {window.location.href='../guide/index.html?uid=' + userId}
     
-        profileDiv.appendChild(nameElement)
-        profileDiv.appendChild(ageElement)
-        profileDiv.appendChild(genderElement)
+    const nameElement = document.createElement("p")
+    nameElement.textContent = `name: ${user.username}`
     
-        // Append the user profile to the search results
-        searchResults.appendChild(profileDiv)
-    }
+    const ageElement = document.createElement("p")
+    ageElement.textContent = `age: ${user.age}`
+    
+    const genderElement = document.createElement("p")
+    genderElement.textContent = `gender: ${user.gender}`
+    
+    // Add more elements for other profile details (e.g., email, mobile number)
+
+    profileDiv.appendChild(nameElement)
+    profileDiv.appendChild(ageElement)
+    profileDiv.appendChild(genderElement)
+
+    // Append the user profile to the search results
+    searchResults.appendChild(profileDiv)
 }
 
 function render_url(){

@@ -7,14 +7,14 @@ import { getDatabase, onValue, ref, set } from "https://www.gstatic.com/firebase
 import app from "../firebaseconfig.js";
 const auth = getAuth(app);
 const database = getDatabase(app);
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        window.location.href = "../";
-    }
-    else {
-        //nothing to do
-    }
-});
+// onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//         window.location.href = "../";
+//     }
+//     else {
+//         //nothing to do
+//     }
+// });
 
 var display = document.getElementById('result');
 const signUp = document.querySelector('#signup');
@@ -64,7 +64,8 @@ async function createUser() {
             console.log(reference);
             set(reference, profileObj)
                 .then(() => {
-                    console.log("Successfull");
+                    console.log("Successfully updated ur details in db");
+                    window.location.href = "../";
                 })
                 .catch((error) => {
                     console.error(error);
@@ -102,7 +103,7 @@ onValue(ref(database, '/language'), (snapshot) => {
     const languageslist = snapshot.val() || "--select city--"
     const languages = languageslist.languages.split(',')
     const selectElement = document.getElementById('languages')
-    
+
     languages.forEach((index) => {
         const selectElementdiv = document.createElement('div')
         const language = document.createElement('input')
