@@ -60,7 +60,7 @@ function chatsomeone() {
     onValue(ref(database,'/users/'+userId),(snapshot)=>{
         const myData = snapshot.val()||{};
         myChatMems = myData.chats||"";
-        if(myChatMems=='') {
+        if(myChatMems==''||myChatMems=='empty') {
             myChatMems = guide_userId;
         }
         else {
@@ -84,7 +84,7 @@ function chatsomeone() {
     onValue(ref(database,'/users/'+guide_userId),(snapshot)=>{
         theirData = snapshot.val()||{};
         theirChatMems = theirData.chats||'';
-        if(theirChatMems=='') {
+        if(theirChatMems==''||theirChatMems=='empty') {
             theirChatMems = userId;
         }
         else {

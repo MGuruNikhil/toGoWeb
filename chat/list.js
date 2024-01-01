@@ -11,10 +11,11 @@ auth.onAuthStateChanged(user => {
         console.log(userId);
         onValue(ref(database, '/users/' + userId), (snapshot) => {
             const userData = snapshot.val()||{};
+            console.log(userData)
             const chatMems = userData.chats||'';
             const chatList = document.getElementById("chatList");
             chatList.innerHTML="";
-            if(chatMems == "") {
+            if(chatMems == ""||chatMems=='empty') {
                 chatList.innerHTML="No chats so far...";
             }
             else {

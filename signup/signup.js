@@ -58,7 +58,7 @@ async function createUser() {
                 gender: gender,
                 language: language,
                 usertype: usertype,
-                chats:'',
+                chats:'empty',
             };
             console.log(profileObj);
             const reference = ref(database, 'users/' + userId);
