@@ -3,10 +3,12 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth
 import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
 const auth = getAuth(app);
 const database = getDatabase(app);
+var userId = null;
 auth.onAuthStateChanged(user => {
     if (user) {
         console.log("Logged in");
-        render_url()
+        userId = user.uid;
+        render_url();
     } else {
         window.location.href = `../login`;
     }
@@ -53,6 +55,47 @@ function chatsomeone() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     var guide_userId = urlParams.get('uid');
+    // Updating chatMems list of both the accounts
+    let myChatMems;
+    onValue(ref(database,'/users/'+userId+'/chats'),(snapshot)=>{
+        myChatMems = snapshot.val()||"";
+        if(myChatMems=='') {
+            myChatMems = guide_userId;
+        }
+        else {
+            myChatMems = myChatMems + ',' + guide_userId;
+        }
+    },{
+        onlyOnce: true
+    })
+    update(ref(database,'/users/'+userId+'/chats'), myChatMems)
+    .then(() => {
+        console.log(myChatMems);
+    })
+    .catch((error) => {
+        console.error('Error updating string:', error);
+    });
+
+    let theirChatMems;
+    onValue(ref(database,'/users/'+guide_userId+'/chats'),(snapshot)=>{
+        theirChatMems = snapshot.val()||"";
+        if(theirChatMems=='') {
+            theirChatMems = userId;
+        }
+        else {
+            theirChatMems = theirChatMems + ',' + userId;
+        }
+    },{
+        onlyOnce: true
+    })
+    update(ref(database,'/users/'+guide_userId+'/chats'), theirChatMems)
+    .then(() => {
+        console.log(theirChatMems);
+    })
+    .catch((error) => {
+        console.error('Error updating string:', error);
+    });
+    
     window.location.href = '../chat/index.html?guide=' + guide_userId
 }
 
