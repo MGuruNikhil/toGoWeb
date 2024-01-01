@@ -56,7 +56,7 @@ function chatsomeone() {
     const urlParams = new URLSearchParams(queryString);
     var guide_userId = urlParams.get('uid');
     // Updating chatMems list of both the accounts
-    let myChatMems;
+    var myChatMems=null;
     onValue(ref(database,'/users/'+userId),(snapshot)=>{
         const myData = snapshot.val()||{};
         myChatMems = myData.chats||"";
@@ -69,6 +69,7 @@ function chatsomeone() {
     },{
         onlyOnce: true
     })
+    console.log(myChatMems)
     update(ref(database,'/users/'+userId), {
         chats: myChatMems
     })
@@ -79,7 +80,7 @@ function chatsomeone() {
         console.error('Error updating string:', error);
     });
 
-    let theirChatMems;
+    var theirChatMems=null;
     onValue(ref(database,'/users/'+guide_userId),(snapshot)=>{
         theirData = snapshot.val()||{};
         theirChatMems = theirData.chats||'';
@@ -92,6 +93,7 @@ function chatsomeone() {
     },{
         onlyOnce: true
     })
+    console.log(theirChatMems)
     update(ref(database,'/users/'+guide_userId), {
         chats: theirChatMems
     })
