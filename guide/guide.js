@@ -1,6 +1,6 @@
 import app from "../firebaseconfig.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+import { getDatabase, ref, set, onValue, update } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
 const auth = getAuth(app);
 const database = getDatabase(app);
 var userId = null;
@@ -95,7 +95,7 @@ function chatsomeone() {
     .catch((error) => {
         console.error('Error updating string:', error);
     });
-    
+
     window.location.href = '../chat/index.html?guide=' + guide_userId
 }
 
