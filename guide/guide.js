@@ -57,8 +57,9 @@ function chatsomeone() {
     var guide_userId = urlParams.get('uid');
     // Updating chatMems list of both the accounts
     let myChatMems;
-    onValue(ref(database,'/users/'+userId+'/chats'),(snapshot)=>{
-        myChatMems = snapshot.val()||"";
+    onValue(ref(database,'/users/'+userId),(snapshot)=>{
+        const myData = snapshot.val()||{};
+        myChatMems = myData.chats||"";
         if(myChatMems=='') {
             myChatMems = guide_userId;
         }
@@ -68,7 +69,9 @@ function chatsomeone() {
     },{
         onlyOnce: true
     })
-    update(ref(database,'/users/'+userId+'/chats'), myChatMems)
+    update(ref(database,'/users/'+userId), {
+        chats: myChatMems
+    })
     .then(() => {
         console.log(myChatMems);
     })
@@ -77,8 +80,9 @@ function chatsomeone() {
     });
 
     let theirChatMems;
-    onValue(ref(database,'/users/'+guide_userId+'/chats'),(snapshot)=>{
-        theirChatMems = snapshot.val()||"";
+    onValue(ref(database,'/users/'+guide_userId),(snapshot)=>{
+        theirData = snapshot.val()||{};
+        theirChatMems = theirData.chats||'';
         if(theirChatMems=='') {
             theirChatMems = userId;
         }
@@ -88,7 +92,9 @@ function chatsomeone() {
     },{
         onlyOnce: true
     })
-    update(ref(database,'/users/'+guide_userId+'/chats'), theirChatMems)
+    update(ref(database,'/users/'+guide_userId), {
+        chats: theirChatMems
+    })
     .then(() => {
         console.log(theirChatMems);
     })
