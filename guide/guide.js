@@ -4,6 +4,9 @@ import { getDatabase, ref, set, onValue, update } from "https://www.gstatic.com/
 const auth = getAuth(app);
 const database = getDatabase(app);
 var userId = null;
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const guide_userId = urlParams.get('uid');
 auth.onAuthStateChanged(user => {
     if (user) {
         console.log("Logged in");
@@ -15,12 +18,10 @@ auth.onAuthStateChanged(user => {
 });
 
 function render_url(){
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    var guide_userId = urlParams.get('uid');
     console.log(guide_userId);
     onValue(ref(database, '/users/' + guide_userId), (snapshot) => {
         const userData = snapshot.val() || {};
+        console.log(userData)
         const pfp = userData.pfp || '../togo.png'
         const noname = userData.username || 'Anonymous';
         const age = userData.age || 'Anonymous';
@@ -43,38 +44,33 @@ function render_url(){
 const book = document.getElementById('book');
 book.addEventListener('click', booksomeone);
 function booksomeone() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    var guide_userId = urlParams.get('uid');
     window.location.href = '../book/index.html?guide=' + guide_userId
 }
 
 const chat = document.getElementById('chat');
 chat.addEventListener('click', chatsomeone);
 function chatsomeone() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    var guide_userId = urlParams.get('uid');
-    // Updating chatMems list of both the accounts
-    var myChatMems=null;
-    onValue(ref(database,'/users/'+userId),(snapshot)=>{
-        const myData = snapshot.val()||{};
+
+    let myChatMems = null;
+    onValue(ref(database, '/users/' + userId), (snapshot) => {
+        const myData = snapshot.val() || {};
         console.log(myData)
         myChatMems = myData.chats||"";
-        console.log(myChatMems)
-        if(myChatMems==''||myChatMems=='empty') {
-            myChatMems = guide_userId;
-        }
-        else {
-            myChatMems = myChatMems + ',' + guide_userId;
-        }
-        console.log(myChatMems)
-    },{
+    }, {
         onlyOnce: true
     })
+
     console.log(myChatMems)
-    update(ref(database,'/users/'+userId), {
-        chats: myChatMems
+    if(myChatMems==''||myChatMems=='empty'||myChatMems==null) {
+        myChatMems = guide_userId;
+    }
+    else {
+        myChatMems = myChatMems + ',' + guide_userId;
+    }
+    console.log(myChatMems)
+
+    update(ref(database,'/users/' + userId), {
+        chats: myChatMems,
     })
     .then(() => {
         console.log(myChatMems);
@@ -83,32 +79,33 @@ function chatsomeone() {
         console.error('Error updating string:', error);
     });
 
-    onValue(ref(database,'/users/'+userId),(snapshot)=>{
+    onValue(ref(database,'/users/' + userId),(snapshot)=>{
         const myData = snapshot.val()||{};
         console.log(myData)
     },{
         onlyOnce: true
     })
 
-    var theirChatMems=null;
-    onValue(ref(database,'/users/'+guide_userId),(snapshot)=>{
+    let theirChatMems = null;
+    onValue(ref(database,'/users/' + guide_userId),(snapshot)=>{
         const theirData = snapshot.val()||{};
         console.log(theirData)
         theirChatMems = theirData.chats||'';
-        console.log(theirChatMems)
-        if(theirChatMems==''||theirChatMems=='empty') {
-            theirChatMems = userId;
-        }
-        else {
-            theirChatMems = theirChatMems + ',' + userId;
-        }
-        console.log(theirChatMems)
     },{
         onlyOnce: true
     })
+
     console.log(theirChatMems)
-    update(ref(database,'/users/'+guide_userId), {
-        chats: theirChatMems
+    if(theirChatMems==''||theirChatMems=='empty'||theirChatMems==null) {
+        theirChatMems = userId;
+    }
+    else {
+        theirChatMems = theirChatMems + ',' + userId;
+    }
+    console.log(theirChatMems)
+
+    update(ref(database,'/users/' + guide_userId), {
+        chats: theirChatMems,
     })
     .then(() => {
         console.log(theirChatMems);
@@ -117,7 +114,7 @@ function chatsomeone() {
         console.error('Error updating string:', error);
     });
 
-    onValue(ref(database,'/users/'+guide_userId),(snapshot)=>{
+    onValue(ref(database,'/users/' + guide_userId),(snapshot)=>{
         const theirData = snapshot.val()||{};
         console.log(theirData)
     },{
