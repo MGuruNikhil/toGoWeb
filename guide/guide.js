@@ -121,6 +121,6 @@ function chatsomeone() {
         onlyOnce: true
     })
     
-    // window.location.href = '../chat/index.html?guide=' + guide_userId
+    window.location.href = '../chat/index.html?guide=' + guide_userId
 }
 

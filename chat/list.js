@@ -24,8 +24,9 @@ auth.onAuthStateChanged(user => {
                     onValue(ref(database,'/users/'+memId),(snapshot)=>{
                         const memData = snapshot.val();
                         const listItem = document.createElement("div");
-                        listItem.classList.add('w-full','hover:bg-opacity-50','border-2','rounded-xl','border-[#E5E3E4]','px-2','py-3','text-[2em]','text-[#E5E3E4]','hover:text-[#5BA199]','hover:bg-[#E5E3E4]');
+                        listItem.classList.add('w-full','hover:bg-opacity-50','border-2','rounded-xl','border-[#E5E3E4]','px-2','py-3','text-[2em]','text-[#E5E3E4]','hover:text-[#5BA199]','hover:bg-[#E5E3E4]','listItem');
                         listItem.innerText=memData.username;
+                        listItem.setAttribute('uid',memId);
                         chatList.appendChild(listItem);
                     })
                 });
@@ -37,3 +38,10 @@ auth.onAuthStateChanged(user => {
         window.location.href = `login`;
     }
 });
+
+document.getElementById("chatList").addEventListener('click',function(e){
+    if(e.target.classList.contains('listItem')) {
+        const theirId = e.target.getAttribute('uid');
+        window.location.href = './index.html?guide='+theirId;
+    }
+})
