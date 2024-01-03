@@ -59,13 +59,16 @@ function chatsomeone() {
     var myChatMems=null;
     onValue(ref(database,'/users/'+userId),(snapshot)=>{
         const myData = snapshot.val()||{};
+        console.log(myData)
         myChatMems = myData.chats||"";
+        console.log(myChatMems)
         if(myChatMems==''||myChatMems=='empty') {
             myChatMems = guide_userId;
         }
         else {
             myChatMems = myChatMems + ',' + guide_userId;
         }
+        console.log(myChatMems)
     },{
         onlyOnce: true
     })
@@ -80,16 +83,26 @@ function chatsomeone() {
         console.error('Error updating string:', error);
     });
 
+    onValue(ref(database,'/users/'+userId),(snapshot)=>{
+        const myData = snapshot.val()||{};
+        console.log(myData)
+    },{
+        onlyOnce: true
+    })
+
     var theirChatMems=null;
     onValue(ref(database,'/users/'+guide_userId),(snapshot)=>{
-        theirData = snapshot.val()||{};
+        const theirData = snapshot.val()||{};
+        console.log(theirData)
         theirChatMems = theirData.chats||'';
+        console.log(theirChatMems)
         if(theirChatMems==''||theirChatMems=='empty') {
             theirChatMems = userId;
         }
         else {
             theirChatMems = theirChatMems + ',' + userId;
         }
+        console.log(theirChatMems)
     },{
         onlyOnce: true
     })
@@ -104,6 +117,13 @@ function chatsomeone() {
         console.error('Error updating string:', error);
     });
 
-    window.location.href = '../chat/index.html?guide=' + guide_userId
+    onValue(ref(database,'/users/'+guide_userId),(snapshot)=>{
+        const theirData = snapshot.val()||{};
+        console.log(theirData)
+    },{
+        onlyOnce: true
+    })
+    
+    // window.location.href = '../chat/index.html?guide=' + guide_userId
 }
 
