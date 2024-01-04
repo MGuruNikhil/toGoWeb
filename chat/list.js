@@ -35,7 +35,7 @@ auth.onAuthStateChanged(user => {
             onlyOnce: true
         });
     } else {
-        window.location.href = `login`;
+        window.location.href = `../login`;
     }
 });
 
