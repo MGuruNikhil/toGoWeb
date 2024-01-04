@@ -24,7 +24,7 @@ auth.onAuthStateChanged(user => {
                     onValue(ref(database,'/users/'+memId),(snapshot)=>{
                         const memData = snapshot.val();
                         const listItem = document.createElement("div");
-                        listItem.classList.add('w-full','hover:bg-opacity-50','border-2','rounded-xl','border-[#E5E3E4]','px-2','py-3','text-[2em]','text-[#E5E3E4]','hover:text-[#5BA199]','hover:bg-[#E5E3E4]','listItem');
+                        listItem.classList.add('w-full','cursor-pointer','hover:bg-opacity-50','border-2','rounded-xl','border-[#E5E3E4]','px-2','py-3','text-[2em]','text-[#E5E3E4]','hover:text-[#5BA199]','hover:bg-[#E5E3E4]','listItem');
                         listItem.innerText=memData.username;
                         listItem.setAttribute('uid',memId);
                         chatList.appendChild(listItem);
