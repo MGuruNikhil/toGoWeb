@@ -10,6 +10,7 @@ auth.onAuthStateChanged(user => {
         console.log("Logged in")
         userId = user.uid
         console.log(userId)
+        document.getElementById("loading-screen").style.display = "none"
     } else {
         window.location.href = `../login`
     }
@@ -36,6 +37,7 @@ function search() {
 }
 
 searchButton.addEventListener("click", () => {
+    document.getElementById("loading-screen").style.display = "flex"
     search()
 })
 // Function to search users by city
@@ -132,6 +134,7 @@ function searchUsersByCity(city) {
                 searchResults.innerHTML = "<div class='border border-black rounded-lg p-2 m-2'>no guides found at "+city+"</div>"
             }
         } 
+        document.getElementById("loading-screen").style.display = "none"
     });
 }
 
