@@ -25,6 +25,7 @@ auth.onAuthStateChanged(user => {
             document.getElementById("city").innerText = city
             document.getElementById("language").innerText = language
             document.getElementById("usertype").innerText = usertype
+            document.getElementById("loading-screen").style.display = "none"
         }, {
             onlyOnce: true
         });
