@@ -121,6 +121,7 @@ onValue(ref(database, '/language'), (snapshot) => {
     })
 
     selectElement.setAttribute('required', 'true');
+    document.getElementById("loading-screen").style.display = "none"
 
 }, {
     onlyOnce: true

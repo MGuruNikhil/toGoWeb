@@ -63,6 +63,7 @@ onValue(ref(database, '/cityImgs'), (snapshot) => {
           
       
           holdmetight.appendChild(citygallery);
+          document.getElementById("loading-screen").style.display = "none"
         }}
 }, {
     onlyOnce: true

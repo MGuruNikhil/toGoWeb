@@ -11,7 +11,7 @@ onAuthStateChanged(auth, (user) => {
         window.location.href = "../";
     }
     else {
-        //nothing to do
+        document.getElementById("loading-screen").style.display = "none"
     }
 });
 

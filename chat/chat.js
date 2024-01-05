@@ -41,7 +41,7 @@ auth.onAuthStateChanged(user => {
                 else {
                     newMsg.classList.add("place-self-start");
                 }
-                newMsg.innerText=msg;
+                newMsg.innerHTML=msg;
                 chatRoom.appendChild(newMsg)
             });
         });

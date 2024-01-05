@@ -1,5 +1,5 @@
 import app from "../firebaseconfig.js"
-import { getAuth, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"
 import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js"
 const auth = getAuth(app)
 const database = getDatabase(app)
@@ -24,7 +24,7 @@ auth.onAuthStateChanged(user => {
             const city = userData.city || 'Anonymous'
             document.getElementById("guide-name").innerText = noname;
             document.getElementById("city").innerText = city;
-
+            document.getElementById("loading-screen").style.display = "none"
         }, {
             onlyOnce: true
         });
