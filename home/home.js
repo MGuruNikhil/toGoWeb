@@ -17,14 +17,14 @@ auth.onAuthStateChanged(user => {
             onlyOnce: true
         });
     } else {
-        window.location.href = `login`;
+        window.location.href = `../login`;
     }
 });
 
 const logOut = document.getElementById("logout");
 logOut.addEventListener('click', () => {
     signOut(auth).then(() => {
-        window.location.href = "login";
+        window.location.href = "../login";
     }).catch((error) => {
         console.log(error);
     });
