@@ -3,64 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>togo</title>
     <link rel="shortcut icon" href="togo-favicon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="home.js"></script>
     <link rel="manifest" href="manifest.json">
 </head>
-<body class="flex flex-col min-h-screen bg-[#5BA199]">
-    <div class="min-w-[100vw] flex items-center backdrop-blur bg-opacity-50 mx-auto pr-4 bg-[#E5E3E4]">
-        <img src="togo.png" class="h-[10vh] mr-3">
-        <div class="my-2 grow items-center justify-around hidden sm:flex sm:gap-2 sm:text-[1.5em]">
-            <a class="bg-[#BBC6C8] grow px-3 py-2 rounded-xl text-center"  href="book/list.html">bookings</a>
-            <a class="bg-[#BBC6C8] grow px-3 py-2 rounded-xl text-center"  href="chat/list.html">chat</a>
-            <a class="bg-[#BBC6C8] grow px-3 py-2 rounded-xl text-center"  href="profile">profile</a>
-            <button class="bg-[#BBC6C8] grow px-3 py-2 rounded-xl" id="logout">logout</button>
+<body class="flex flex-col items-center justify-center min-h-screen bg-[#5BA199]">
+                togo
+                <a href="home" class="text-[#BBC6C8] underline">let's go</a>
+    
+<!--     <div id="nav" class="min-h-[30px] flex bg-black bg-opacity-20 items-center">
+        <div class="flex text-[2em] font-bold cursor-pointer">
+            <img src="togo.png" class="w-[1.5em]">
+            togo
         </div>
-        <div class="my-2 grow items-center justify-end flex sm:hidden">
-            <button class="bg-[#BBC6C8] px-3 py-2 rounded-xl" id="menu">menu</button>
+        <div class="grow"></div>
+        <a class="m-3 bg-[#BBC6C8] h-fit px-3 py-1 rounded-3xl" href="home">get started</a>
+    </div>
+    <div class="grow p-5 flex items-center justify-center">
+        <div class="bg-black grow flex flex-col items-center justify-center max-w-[800px] rounded-3xl p-5 bg-opacity-20">
+            <div class="text-3xl font-bold pb-2">
+                tourists?
+            </div>
+            Ready to break free from cookie-cutter tours and delve deep into vibrant cultures worldwide? Introducing ToGo – the leading marketplace where genuine encounters await! Browse our carefully curated collection of local guides ready to reveal captivating sights, sounds, and flavors beyond traditional tourist routes. Embrace authenticity, save time planning, and cultivate cherished memories during every step of your adventure. Register today to unlock extraordinary experiences! <a class="text-[#BBC6C8] underline" href="home">Sign up now!</a>
         </div>
     </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var menuButton = document.getElementById("menu")
-        var navMenu = document.querySelector(".hidden.sm\\:flex")
-
-        menuButton.addEventListener("click", function() {
-            navMenu.classList.toggle("grid")
-            navMenu.classList.toggle("gap-2")
-            navMenu.classList.toggle("grid-cols-2")
-            navMenu.classList.toggle("hidden")
-        });
-    });
-    </script>
-    <div class="max-w-[1000px] mx-auto p-5 flex flex-col text-[2em]">
-        <div>welcome <span id="name"></span>,</div>
-        <div>need a local guide person?</div>
-        <button class="bg-[#BBC6C8] rounded-xl m-5 px-5 py-3" id="book" onclick="booking()">book them now</button>
-    </div>
-    <div class="max-w-[1000px] mx-auto">
-        <div id="select" class="bg-[#469597] m-5 text-[4vw] relative md:text-[2rem] p-10 rounded-xl flex flex-col gap-2 hidden">
-            <div class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 cursor-pointer text-3xl" onclick="booking()">&#10006;</div>
-            book by choosing a city name
-            <select id="city" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
-                <option selected disabled value="">--select city--</option>
-            </select>        
-            <button  class="mt-2 bg-[#BBC6C8] px-3 py-2 rounded-xl" onclick="city = document.getElementById('city').value;window.location.href='search/index.html?city=' + city">search</button>
-        </div>
-        <div id="imghold" class="text-[3vw] my-3 mx-5 grid grid-cols-2 gap-4">
-
+    <div class="grow p-5 flex items-center justify-center">
+        <div class="bg-black grow flex flex-col items-center justify-center max-w-[800px] rounded-3xl p-5 bg-opacity-20">
+            <div class="text-3xl font-bold pb-2">
+                guides?
+            </div>
+            Do you have a passion for exploring your own city and sharing its secrets with others? If so, join ToGo – the thriving platform where curious travelers meet friendly locals like yourself! As a registered guide, you'll gain access to countless opportunities to showcase your area's best-kept secrets, engage with visitors from around the world, and earn extra income along the way. Don't miss out on this chance to bring joy to fellow adventurers while making lifelong connections. <a class="text-[#BBC6C8] underline" href="home">Sign up now!</a>
         </div>
     </div>
-    <script>
-        book = document.getElementById("book")
-        select = document.getElementById("select")
-
-        function booking(){
-            book.classList.toggle("hidden")
-            select.classList.toggle("hidden")
-        }
-    </script>
+    <div id="footer" class="flex min-h-[100px] bg-black bg-opacity-20 p-5">
+        <a href="#nav" class="text-3xl font-bold h-fit">
+            togo
+        </a>
+    </div> -->
 </body>
 </html>

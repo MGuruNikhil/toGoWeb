@@ -66,7 +66,7 @@ async function createUser() {
             set(reference, profileObj)
                 .then(() => {
                     console.log("Successfully updated ur details in db");
-                    window.location.href = "../";
+                    window.location.href = "../home";
                 })
                 .catch((error) => {
                     console.error(error);
@@ -121,6 +121,7 @@ onValue(ref(database, '/language'), (snapshot) => {
     })
 
     selectElement.setAttribute('required', 'true');
+    document.getElementById("loading-screen").style.display = "none"
 
 }, {
     onlyOnce: true

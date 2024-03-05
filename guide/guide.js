@@ -1,19 +1,19 @@
-import app from "../firebaseconfig.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
-import { getDatabase, ref, set, onValue, update } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
-const auth = getAuth(app);
-const database = getDatabase(app);
-var userId = null;
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const guide_userId = urlParams.get('uid');
+import app from "../firebaseconfig.js"
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"
+import { getDatabase, ref, onValue, update } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js"
+const auth = getAuth(app)
+const database = getDatabase(app)
+var userId = null
+const queryString = window.location.search
+const urlParams = new URLSearchParams(queryString)
+const guide_userId = urlParams.get('uid')
 auth.onAuthStateChanged(user => {
     if (user) {
-        console.log("Logged in");
-        userId = user.uid;
-        render_url();
+        console.log("Logged in")
+        userId = user.uid
+        render_url()
     } else {
-        window.location.href = `../login`;
+        window.location.href = `../login`
     }
 });
 
@@ -36,6 +36,7 @@ function render_url(){
         document.getElementById("city").innerText = city;
         document.getElementById("language").innerText = language
         document.getElementById("usertype").innerText = usertype;
+        document.getElementById("loading-screen").style.display = "none"
     }, {
         onlyOnce: true
     })
