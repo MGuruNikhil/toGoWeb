@@ -1,5 +1,11 @@
 # Togo - Explore Locally with Personalized Tour Guides
 
+> [!note]
+>
+> we are going to push new updates soon!
+>
+> you may look our [todo](todo.md) to know what we are cooking
+
 Togo is an open-source platform that connects travelers with local tour guides, offering a unique and personalized exploration experience. Discover hidden gems and cultural treasures with the help of passionate locals.
 
 ## Features
