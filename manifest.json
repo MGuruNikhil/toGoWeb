@@ -1,16 +1,16 @@
 {
-    "name": "togo",
-    "short_name": "togo",
-    "description": "the official togo pwa :D",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color": "#ff534f",
-    "theme_color": "#000000",
-    "icons": [
-        {
-            "src": "togo.png",
-            "type": "image/png",      
-            "sizes": "400x400"
-        }
-    ]
+  "name": "Togo",
+  "short_name": "Togo",
+  "description": "Explore the world like a local, with locals!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ff534f",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "togo.png",
+      "type": "image/png",
+      "sizes": "400x400"
+    }
+  ]
 }
