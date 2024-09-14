@@ -24,7 +24,7 @@ Togo is an open-source platform that connects travelers with local tour guides, 
 
 ## Usage
 
-Visit [Togo Website](https://mguruNnkhil.github.io/toGoWeb) to start exploring and connecting with local guides.
+Visit [Togo Website](https://mgurunikhil.github.io/toGoWeb) to start exploring and connecting with local guides.
 
 ## Contributing
 
@@ -32,6 +32,6 @@ We welcome contributions! If you're interested in contributing to Togo, please c
 
 ## Contact
 
-For any questions or feedback, feel free to reach out to us at our [contact email](mailto:@gmail.com).
+For any questions or feedback, feel free to reach out to us at our [contact email](mailto:gurunikhilmangaraju@gmail.com).
 
 Happy exploring with Togo!
