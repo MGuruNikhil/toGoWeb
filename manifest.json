@@ -4,8 +4,8 @@
   "description": "Explore the world like a local, with locals!",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ff534f",
-  "theme_color": "#000000",
+  "background_color": "#6F2DBD",
+  "theme_color": "#6F2DBD",
   "icons": [
     {
       "src": "togo.png",
