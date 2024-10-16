@@ -2,7 +2,7 @@
   "name": "Togo",
   "short_name": "Togo",
   "description": "Explore the world like a local, with locals!",
-  "start_url": "/",
+  "start_url": "https://mgurunikhil.github.io/toGoWeb/home/",
   "display": "standalone",
   "background_color": "#6F2DBD",
   "theme_color": "#6F2DBD",
