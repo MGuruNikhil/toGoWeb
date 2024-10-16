@@ -11,8 +11,10 @@ auth.onAuthStateChanged(user => {
         console.log(userId);
         onValue(ref(database, '/users/' + userId), (snapshot) => {
             const userData = snapshot.val() || {};
+            const pfp = userData.pfp || '../togo.png'
             const noname = userData.username || 'Anonymous';
             document.getElementById("name").innerText = noname;
+            document.getElementById("pfp").src = pfp
         }, {
             onlyOnce: true
         });
