@@ -3,47 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signup</title>
+    <title>Signup</title>
     <link rel="shortcut icon" href="../togo-favicon.png" type="image/x-icon">
     <script src="signup.js" type="module"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
 </head>
-<body class="relative flex min-h-screen items-center justify-center bg-[#5BA199]">
-    <div id="loading-screen" class="absolute top-0 right-0 left-0 bottom-0 bg-[#5BA199] flex items-center justify-center">
+<body class="relative flex min-h-screen items-center justify-center bg-base-300">
+    <div id="loading-screen" class="absolute top-0 right-0 left-0 bottom-0 bg-base-300 flex items-center justify-center">
         loading
     </div>
-    <div class="bg-[#469597] text-[4vw] md:text-[2rem] p-10 rounded-xl flex flex-col gap-2">
-        <div class="text-[5vw] md:text-[3rem] mb-2">signup</div>
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="pfp" type="text" placeholder="pfp">
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="username" type="text"
-            placeholder="username">
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="email" type="email"
-            placeholder="email">
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="age" type="number" placeholder="age">
-        <select id="city" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
-            <option selected disabled value="">--select city--</option>
-        </select>
-        <div>
-            known languages :
-            <div id="languages" class="grid grid-cols-2 gap-2">
-
+    <div class="card w-96 max-w-[90vw] bg-base-100 shadow-xl mt-20 mb-20">
+        <div class="card-body">
+            <h2 class="card-title">Signup</h2>
+            <div class="flex flex-col gap-2">
+                <label class="input input-bordered flex items-center gap-2 mb-2">
+                    <input class="grow" id="pfp" type="text" placeholder="Profile Picture URL" />
+                </label>
+                <label class="input input-bordered flex items-center gap-2 mb-2">
+                    <input class="grow" id="username" type="text" placeholder="Username" />
+                </label>
+                <label class="input input-bordered flex items-center gap-2 mb-2">
+                    <input class="grow" id="email" type="email" placeholder="Email" />
+                </label>
+                <label class="input input-bordered flex items-center gap-2 mb-2">
+                    <input class="grow" id="age" type="number" placeholder="Age" />
+                </label>
+                <label class="input input-bordered flex items-center gap-2 mb-2">
+                    <select id="city" class="grow bg-base-100" required>
+                        <option selected disabled value="">--Select City--</option>
+                    </select>
+                </label>
+                <div>
+                    Known languages:
+                    <div id="languages" class="grid grid-cols-2 gap-2"></div>
+                </div>
+                <div>
+                    Gender:
+                    <label class="flex items-center gap-2">
+                        <input type="radio" id="female" name="GENDER" value="female" />
+                        Female
+                    </label>
+                    <label class="flex items-center gap-2">
+                        <input type="radio" id="male" name="GENDER" value="male" />
+                        Male
+                    </label>
+                </div>
+                <label class="input input-bordered flex items-center gap-2 mb-2">
+                    <select name="usertype" id="usertype" class="grow bg-base-100" required>
+                        <option value="tourist">Tourist</option>
+                        <option value="guide">Guide</option>
+                    </select>
+                </label>
+                <label class="input input-bordered flex items-center gap-2 mb-2">
+                    <input class="grow" id="password" type="password" placeholder="Password" onkeydown="if(event.key==='Enter'){document.getElementById('signup').click()}" />
+                </label>
             </div>
+            <div class="card-actions justify-end">
+                <button class="btn btn-success w-full" id="signup">Signup</button>
+            </div>
+            <div id="result"></div>
+            <div>Old here? <a class="font-bold" href="../login">Login now</a></div>
         </div>
-        <div>
-            gender :
-            <input type="radio" id="female" name="GENDER" value="female">
-            female
-            <input type="radio" id="male" name="GENDER" value="male">
-            male
-        </div>        
-        <select name="usertype" id="usertype" class="bg-[#f9ac40] rounded-lg focus:ring-[#ff534f] py-1 px-2.5" required>
-            <option value="tourist">tourist</option>
-            <option value="guide">guide</option>
-        </select>        
-        <input class="bg-[#f9ac40] rounded-lg py-1 px-2.5 placeholder-black" id="password" type="password" placeholder="password" onkeydown="if(event.key==='Enter'){document.getElementById('signup').click()}">
-        <button class="mt-2 bg-[#ff534f] px-3 py-2 rounded-xl" id="signup">signup</button>
-        <div id="result"></div>
-        <div>old here? <a class="font-bold" href="../login">login now</a></div>
     </div>
 </body>
 </html>

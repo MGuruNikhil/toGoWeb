@@ -93,7 +93,7 @@ onValue(ref(database, '/city'), (snapshot) => {
         selectElement.appendChild(option);
     })
 
-    selectElement.classList.add('bg-[#f9ac40]', 'rounded-lg', 'focus:ring-[#ff534f]', 'py-1', 'px-2.5');
+    selectElement.classList.add('bg-base-100', 'rounded-lg', 'focus:ring-[#ff534f]', 'py-1', 'px-2.5');
     selectElement.setAttribute('required', 'true');
 
 }, {
