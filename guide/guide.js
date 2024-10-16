@@ -13,7 +13,7 @@ auth.onAuthStateChanged(user => {
         userId = user.uid
         render_url()
     } else {
-        window.location.href = `../login`
+        window.location.href = `https://mgurunikhil.github.io/toGoWeb/login`
     }
 });
 
@@ -22,7 +22,7 @@ function render_url(){
     onValue(ref(database, '/users/' + guide_userId), (snapshot) => {
         const userData = snapshot.val() || {};
         console.log(userData)
-        const pfp = userData.pfp || '../togo.png'
+        const pfp = userData.pfp || 'https://mgurunikhil.github.io/toGoWeb/togo.png'
         const noname = userData.username || 'Anonymous';
         const age = userData.age || 'Anonymous';
         const city = userData.city || 'Anonymous';
@@ -45,7 +45,7 @@ function render_url(){
 const book = document.getElementById('book');
 book.addEventListener('click', booksomeone);
 function booksomeone() {
-    window.location.href = '../book/index.html?guide=' + guide_userId
+    window.location.href = 'https://mgurunikhil.github.io/toGoWeb/book/index.html?guide=' + guide_userId
 }
 
 const chat = document.getElementById('chat');
@@ -122,6 +122,6 @@ function chatsomeone() {
         onlyOnce: true
     })
     
-    window.location.href = '../chat/index.html?guide=' + guide_userId
+    window.location.href = 'https://mgurunikhil.github.io/toGoWeb/chat/index.html?guide=' + guide_userId
 }
 

@@ -35,13 +35,13 @@ auth.onAuthStateChanged(user => {
             onlyOnce: true
         });
     } else {
-        window.location.href = `../login`;
+        window.location.href = `https://mgurunikhil.github.io/toGoWeb/login`
     }
 });
 
 document.getElementById("chatList").addEventListener('click',function(e){
     if(e.target.classList.contains('listItem')) {
         const theirId = e.target.getAttribute('uid');
-        window.location.href = './index.html?guide='+theirId;
+        window.location.href = 'https://mgurunikhil.github.io/toGoWeb/chat/index.html?guide='+theirId;
     }
 })

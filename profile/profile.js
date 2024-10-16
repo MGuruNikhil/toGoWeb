@@ -11,7 +11,7 @@ auth.onAuthStateChanged(user => {
         console.log(userId)
         onValue(ref(database, '/users/' + userId), (snapshot) => {
             const userData = snapshot.val() || {}
-            const pfp = userData.pfp || '../togo.png'
+            const pfp = userData.pfp || 'https://mgurunikhil.github.io/toGoWeb/togo.png'
             const noname = userData.username || 'Anonymous'
             const age = userData.age || 'Anonymous'
             const city = userData.city || 'Anonymous'
@@ -30,14 +30,14 @@ auth.onAuthStateChanged(user => {
             onlyOnce: true
         });
     } else {
-        window.location.href = `../login`;
+        window.location.href = `https://mgurunikhil.github.io/toGoWeb/login`
     }
 });
 
 const logOut = document.getElementById("logout");
 logOut.addEventListener('click', () => {
     signOut(auth).then(() => {
-        window.location.href = "../login";
+        window.location.href = "https://mgurunikhil.github.io/toGoWeb/login"
     }).catch((error) => {
         console.log(error);
     });

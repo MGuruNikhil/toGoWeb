@@ -19,14 +19,14 @@ auth.onAuthStateChanged(user => {
             onlyOnce: true
         });
     } else {
-        window.location.href = `../login`;
+        window.location.href = `https://mgurunikhil.github.io/toGoWeb/login`
     }
 });
 
 const logOut = document.getElementById("logout");
 logOut.addEventListener('click', () => {
     signOut(auth).then(() => {
-        window.location.href = "../login";
+        window.location.href = "https://mgurunikhil.github.io/toGoWeb/"
     }).catch((error) => {
         console.log(error);
     });

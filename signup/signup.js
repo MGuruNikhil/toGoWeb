@@ -21,7 +21,7 @@ const signUp = document.querySelector('#signup');
 signUp.addEventListener('click', createUser);
 
 async function createUser() {
-    const pfp = document.getElementById("pfp").value || '../togo.png'
+    const pfp = document.getElementById("pfp").value || 'https://mgurunikhil.github.io/toGoWeb/togo.png'
     const mail = document.getElementById('email')
     const email = mail.value
     const pWord = document.getElementById('password')
@@ -66,7 +66,7 @@ async function createUser() {
             set(reference, profileObj)
                 .then(() => {
                     console.log("Successfully updated ur details in db");
-                    window.location.href = "../home";
+                    window.location.href = "https://mgurunikhil.github.io/toGoWeb/home"
                 })
                 .catch((error) => {
                     console.error(error);

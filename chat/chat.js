@@ -18,7 +18,7 @@ auth.onAuthStateChanged(user => {
         onValue(ref(database, '/users/' + guide_userId), (snapshot) => {
             const userData = snapshot.val() || {}
             const noname = userData.username || 'chat person name'
-            const pfp = userData.pfp || '../togo.png'
+            const pfp = userData.pfp || 'https://mgurunikhil.github.io/toGoWeb/togo.png'
             document.getElementById("chat-name").innerText = noname;
             document.getElementById("pfp").src = pfp
         }, {
@@ -46,7 +46,7 @@ auth.onAuthStateChanged(user => {
             });
         });
     } else {
-        window.location.href = `../login`;
+        window.location.href = `https://mgurunikhil.github.io/toGoWeb/login`
     }
 });
 
@@ -57,7 +57,7 @@ profile.addEventListener('click', () => {
     const urlParams = new URLSearchParams(queryString)
     guide_userId = urlParams.get('guide')
 
-    window.location.href = "../guide/index.html?uid=" + guide_userId
+    window.location.href = "https://mgurunikhil.github.io/toGoWeb/guide/index.html?uid=" + guide_userId
 
 })
 
