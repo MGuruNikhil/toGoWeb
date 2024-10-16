@@ -12,7 +12,7 @@ auth.onAuthStateChanged(user => {
         console.log(userId)
         document.getElementById("loading-screen").style.display = "none"
     } else {
-        window.location.href = `../login`
+        window.location.href = `https://mgurunikhil.github.io/toGoWeb/login`
     }
 });
 
@@ -148,7 +148,7 @@ function displayUserProfile(user, userId) {
     profileDiv.classList.add("p-2")
     profileDiv.classList.add("m-2")
     profileDiv.classList.add("cursor-pointer")
-    profileDiv.onclick = () => {window.location.href='../guide/index.html?uid=' + userId}
+    profileDiv.onclick = () => {window.location.href='https://mgurunikhil.github.io/toGoWeb/guide/index.html?uid=' + userId}
     
     const nameElement = document.createElement("p")
     nameElement.textContent = `name: ${user.username}`

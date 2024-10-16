@@ -8,7 +8,7 @@ var userId = null;
 const auth = getAuth(app);
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        window.location.href = "../home";
+        window.location.href = "https://mgurunikhil.github.io/toGoWeb/home"
     }
     else {
         document.getElementById("loading-screen").style.display = "none"
