@@ -1,6 +1,6 @@
 ---
-
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +15,16 @@
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen bg-base-300">    
     {% include nav.html %}
+    <div class="hero min-h-screen" style="background-image: url('https://source.unsplash.com/random/1920x1080');">
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+                <h1 class="mb-5 text-5xl font-bold">Welcome to ToGo</h1>
+                <p class="mb-5">Explore the world like a local, with locals!</p>
+                <a href="home" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </div>
     <div class="grow p-5 flex items-center justify-center">
         <div class="card bg-base-100 max-w-[800px] shadow-xl">
             <div class="card-body">
