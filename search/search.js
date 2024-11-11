@@ -34,6 +34,7 @@ function search() {
 
     // Search for users with matching city
     searchUsersByCity(cityToSearch)
+    document.getElementById("loading-screen").style.display = "none"
 }
 
 searchButton.addEventListener("click", () => {
